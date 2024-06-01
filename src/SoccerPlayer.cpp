@@ -1,7 +1,7 @@
 #include <iostream>
 #include "../include/SoccerPlayer.hpp"
 
-SoccerPlayer::SoccerPlayer() {
+SoccerPlayer::SoccerPlayer() : isGoalkeeper(false) {
 	this->attack = 0;
 	this->defense = 0;
 }
@@ -34,7 +34,13 @@ void SoccerPlayer::setDefense(int value) {
 	this->defense = value;
 }
 
-void SoccerPlayer::informations() {
+void SoccerPlayer::changeToGoalkeeper(){
+	this->isGoalkeeper = true;
+}
 
-	std::cout << this->getName() << " tem " << this->getAttack() << " e " << this->getDefense() << " de defesa" << std::endl;
+void SoccerPlayer::informations() const {
+
+	std::string info = "Nome: " + this->getName() + " | " + "Ataque: " + this->getAttack() + " | " + "Defesa: " + this->getDefense();
+
+	std::cout << info << std::endl;
 }

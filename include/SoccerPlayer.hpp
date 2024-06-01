@@ -5,8 +5,8 @@ int speed; // velocidade do jogador
 	int dribbling; // habilidade do jogador em manter o controle da bola
 */
 
-#ifndef SOCCER_PLAYER
-#define SOCCER_PLAYER
+#ifndef SOCCER_PLAYER_HPP
+#define SOCCER_PLAYER_HPP
 
 #include <iostream>
 
@@ -16,6 +16,7 @@ private:
 	std::string name;
 	int attack;
 	int defense;
+	bool isGoalkeeper;
 
 public:
 	SoccerPlayer();
@@ -28,7 +29,8 @@ public:
 	void setAttack(int value);
 	int getDefense() const;
 	void setDefense(int value);
-	void informations();
+	void changeToGoalkeeper();
+	void informations() const;
 
 };
 

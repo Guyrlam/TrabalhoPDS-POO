@@ -1,6 +1,6 @@
 
-#ifndef SOCCER_TEAM
-#define SOCCER_TEAM
+#ifndef SOCCER_TEAM_HPP
+#define SOCCER_TEAM_HPP
 
 #include <iostream>
 #include <array>

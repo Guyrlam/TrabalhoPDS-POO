@@ -27,7 +27,7 @@ void SoccerTeam::showSoccerPlayerInformations() {
 
     std::cout << "Informacoes do time:" << std::endl;
     for (size_t i = 0; i < this->numPlayers; ++i) {
-        this->soccerPlayers[i]->informations(); // Chama o método para imprimir informações sobre o objeto B
+        this->soccerPlayers[i]->informations(); // Chama o método para imprimir informações sobre o objeto
     }
 }
 
