@@ -34,4 +34,4 @@ public:
 
 };
 
-#endif
+#endif //!SOCCER_PLAYER_HPP

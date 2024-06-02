@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "../include/SoccerPlayer.hpp"
 
 SoccerPlayer::SoccerPlayer() : isGoalkeeper(false) {
@@ -40,7 +41,7 @@ void SoccerPlayer::changeToGoalkeeper(){
 
 void SoccerPlayer::informations() const {
 
-	std::string info = "Nome: " + this->getName() + " | " + "Ataque: " + this->getAttack() + " | " + "Defesa: " + this->getDefense();
+	std::string info = "Nome: " + this->getName() + " | " + "Ataque: " + std::to_string(this->getAttack()) + " | " + "Defesa: " + std::to_string(this->getDefense());
 
 	std::cout << info << std::endl;
 }

@@ -3,6 +3,7 @@ CC = g++
 
 # Compiler flags
 CFLAGS = -Wall -Wextra -pedantic -std=c++11
+DEBUG_FLAGS = -g -O0
 
 # Directories
 SRC_DIR = src
@@ -22,7 +23,7 @@ $(EXECUTABLE): $(OBJ_FILES) | $(BIN_DIR)
 	$(CC) $(CFLAGS) $(OBJ_FILES) -o $@
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp | $(BUILD_DIR)
-	$(CC) $(CFLAGS) -I$(INCLUDE_DIR) -c $< -o $@
+	$(CC) $(CFLAGS) $(DEBUG_FLAGS) -I$(INCLUDE_DIR) -c $< -o $@
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)

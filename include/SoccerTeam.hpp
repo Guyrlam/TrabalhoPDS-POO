@@ -24,4 +24,4 @@ public:
 	~SoccerTeam();
 };
 
-#endif
+#endif // !SOCCER_TEAM_HPP
