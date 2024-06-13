@@ -6,14 +6,14 @@
 #include "../include/Utils.hpp"
 #include "../include/SoccerMatch.hpp"
 
-// Criando um gerador de números aleatórios
+// Criando um gerador de nï¿½meros aleatï¿½rios
 std::random_device rd;
-std::mt19937 gen(rd()); // Mersenne Twister 19937 gerador de números aleatórios
+std::mt19937 gen(rd()); // Mersenne Twister 19937 gerador de nï¿½meros aleatï¿½rios
 
-// Definindo a distribuição dos números aleatórios (de 1 a 100)
+// Definindo a distribuiï¿½ï¿½o dos nï¿½meros aleatï¿½rios (de 1 a 100)
 std::uniform_int_distribution<> dis(1, 100);
 
-// Construtor SoccerMatch: Quando instanciado inicia o placar 0 x 0 e define que será o time a inciar os turno, lembrando o time A sempre começa
+// Construtor SoccerMatch: Quando instanciado inicia o placar 0 x 0 e define que serï¿½ o time a inciar os turno, lembrando o time A sempre comeï¿½a
 SoccerMatch::SoccerMatch(SoccerTeam *leftSideTeam, SoccerTeam *rightSideTeam) 
 	: teamAScore(0), teamBScore(0), round(1){
 
@@ -32,10 +32,10 @@ void SoccerMatch::showTeams() {
 
 	std::string soccerField = Utils::readFile("..\\game_graphics\\soccerField.txt");
 
-	// Verificando se o conteúdo foi lido corretamente
+	// Verificando se o conteï¿½do foi lido corretamente
 	if (!soccerField.empty()) {
-		// Exibindo o conteúdo do arquivo
-		std::cout << "Conteúdo do arquivo:" << std::endl;
+		// Exibindo o conteï¿½do do arquivo
+		std::cout << "Conteï¿½do do arquivo:" << std::endl;
 		std::cout << soccerField;
 	}
 	else {
@@ -43,6 +43,9 @@ void SoccerMatch::showTeams() {
 	}
 
 }
+
+// Criar um mÃ©todo de confronto entre jogadores
+
 
 /*
 void SoccerMatch::nextRound() {

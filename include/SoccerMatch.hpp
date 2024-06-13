@@ -7,7 +7,7 @@
 class SoccerMatch {
 
 private:
-	SoccerTeam *teamA; // Ser� o time a inciar a partida
+	SoccerTeam *teamA; // Ser� o time a inciar a partida
 	SoccerTeam *teamB;
 	int teamAScore;
 	int teamBScore;
@@ -18,6 +18,7 @@ public:
 	SoccerMatch(SoccerTeam* leftSideTeam, SoccerTeam* rightSideTeam);
 	void showTeams();
 	~SoccerMatch();
+	// to do: Fazer um método pra confronto e método reposicionar 
 
 };
 

@@ -1,7 +1,7 @@
 /*
 int speed; // velocidade do jogador
 	int shooting; // chute do jogador
-	int passing; // Avalia a precisão e a técnica de passe do jogador.
+	int passing; // Avalia a precisï¿½o e a tï¿½cnica de passe do jogador.
 	int dribbling; // habilidade do jogador em manter o controle da bola
 */
 
@@ -26,9 +26,9 @@ public:
 	void setName(const std::string& newName);
 
 	int getAttack() const;
-	void setAttack(int value);
+	void virtual setAttack(int value);
 	int getDefense() const;
-	void setDefense(int value);
+	void virtual setDefense(int value);
 	void changeToGoalkeeper();
 	void informations() const;
 
