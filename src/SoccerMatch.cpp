@@ -46,7 +46,30 @@ void SoccerMatch::showTeams() {
 
 // Criar um método de confronto entre jogadores
 
+int SoccerMatch::playersConfrontation(SoccerPlayer* attacker, SoccerPlayer* defender) {
+    int attackValue = attacker->getDribbling() + attacker->getShooting() + attacker->getPassing();
+    int defenseValue = defender->getAgility() + defender->getStrength() + defender->getResistance();
+    return attackValue - defenseValue;
+}
 
+// Método para chance de gol
+
+bool SoccerMatch::attemptGoal(SoccerPlayer* attacker, GoalKeeper* keeper) {
+    int attackValue = attacker->getShooting();
+    int defenseValue = keeper->getDefense() + keeper->getFlexibility();
+    return attackValue > defenseValue;
+}
+
+//Método para atualizar o placar
+
+void SoccerMatch::updateScore(SoccerTeam* scoringTeam) {
+    if (scoringTeam == teamA) {
+        teamAScore++;
+    } else {
+        teamBScore++;
+    }
+    std::cout << "Placar atualizado: Team A " << teamAScore << " - " << teamBScore << " Team B" << std::endl;
+}
 /*
 void SoccerMatch::nextRound() {
 
@@ -63,6 +86,14 @@ void SoccerMatch::nextRound() {
 	}
 
 }*/
+
+// Ver se a partida deve continuar
+
+void SoccerMatch::playMatch() {
+    while (teamAScore < 3 && teamBScore < 3) {
+        nextRound();
+    }
+}
 
 SoccerMatch::~SoccerMatch(){
 

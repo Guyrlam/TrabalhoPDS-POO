@@ -13,10 +13,15 @@ private:
 	int teamBScore;
 	int round;
 	//void nextRound();
+	void nextRound();
+	int playersConfrontation(SoccerPlayer* attacker, SoccerPlayer* defender);
+    void updateScore(SoccerTeam* scoringTeam);
+    bool attemptGoal(SoccerPlayer* attacker, GoalKeeper* keeper);
 
 public:
 	SoccerMatch(SoccerTeam* leftSideTeam, SoccerTeam* rightSideTeam);
 	void showTeams();
+	void playMatch();
 	~SoccerMatch();
 	// to do: Fazer um método pra confronto e método reposicionar 
 
