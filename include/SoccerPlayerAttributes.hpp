@@ -9,32 +9,26 @@
 class SoccerPlayerAttributes
 {
 protected:
-    int speed;
-    int shooting;
-    int passing;
-    int dribbling;
+    int agility;
+    int strength;
+    int resistance;
+    std::string name;
 
 public:
-    SoccerPlayerAttributes();
-    virtual ~SoccerPlayerAttributes() = 0;
 
-    virtual std::string getName() const = 0;
-    virtual void setName(const std::string& newName) = 0;
+    std::string getName() const;
+    void setName(const std::string& newName);
 
-    int getSpeed() const;
-    virtual void setSpeed(int value);
+    int getAgility() const;
+    void setAgility(int value);
 
-    int getShooting() const;
-    virtual void setShooting(int value);
+    int getStrength() const;
+    void setStrength(int value);
 
-    int getPassing() const;
-    virtual void setPassing(int value);
+    int getResistance() const;
+    void setResistance(int value);
 
-    int getDribbling() const;
-    virtual void setDribbling(int value);
-
-    virtual void informations() const = 0;
-
+    virtual void informations() const;
 };
 
 

@@ -19,7 +19,7 @@ int main() {
 	SoccerTeam* team1 = new SoccerTeam();
 	SoccerTeam* team2 = new SoccerTeam();
 
-	player1->setName("Vini Jr");
+	/*player1->setName("Vini Jr");
 	player1->setAttack(90);
 	player1->setDefense(30); 
 
@@ -67,6 +67,6 @@ int main() {
 
 	SoccerMatch soccerMatch = SoccerMatch(team1, team2);
 
-	soccerMatch.showTeams();
+	soccerMatch.showTeams();*/
 	return 0;
 } 

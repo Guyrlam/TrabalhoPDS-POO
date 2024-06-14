@@ -5,20 +5,16 @@
 class GoalKeeper : public SoccerPlayerAttributes {
 
     private:
-        std::string name;
         int flexibility;
-        int strength;
+        int defense;
 
     public:
         
-        std::string getName() const;
-        void setName(const std::string& newName);
-
         int getFlexibility() const;
-        virtual void setFlexibility(int value);
+        void setFlexibility(int value);
 
         int getStrength() const;
-        virtual void setStrength(int value);
+        void setStrength(int value);
 
         void informations() const;      
 

@@ -1,36 +1,36 @@
-// #ifndef SOCCER_PLAYER_HPP
-// #define SOCCER_PLAYER_HPP
+#ifndef SOCCER_PLAYER_HPP
+#define SOCCER_PLAYER_HPP
 
-// #include <iostream>
-// #include <string>
-// #include "SoccerPlayerAttributes.hpp"
+#include <iostream>
+#include <string>
+#include "SoccerPlayerAttributes.hpp"
 
-// class SoccerPlayer : public SoccerPlayerAttributes {
+class SoccerPlayer : public SoccerPlayerAttributes {
 
-// private:
-// 	std::string name;
-// 	int resistance;
-// 	int qi;
+private:
+	int dribbling;
+	int shooting;
+	int passing;
 
-// public:
-// 	SoccerPlayer();
-// 	~SoccerPlayer();
+public:
+ 	SoccerPlayer();
+	~SoccerPlayer();
+
+	int getDribbling() const;
+    void setDribbling(int value);
+
+	int getPassing() const;
+    void setPassing(int value);
+
+	int getShooting() const;
+    void setShooting(int value);
 	
-// 	std::string getName() const override;
-// 	void setName(const std::string& newName) override;
+	void informations() const override;
+ };
 
-// 	int getResistance() const;
-// 	virtual void setResistance(int value);
-	
-// 	int getQi() const;
-// 	virtual void setQi(int value);
+#endif //!SOCCER_PLAYER_HPP
 
-// 	void informations() const;
-
-// };
-
-// #endif //!SOCCER_PLAYER_HPP
-
+/*
 #ifndef SOCCER_PLAYER_HPP
 #define SOCCER_PLAYER_HPP
 
@@ -63,3 +63,4 @@ public:
 };
 
 #endif //!SOCCER_PLAYER_HPP
+*/

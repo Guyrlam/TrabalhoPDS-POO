@@ -1,49 +1,89 @@
-// #include <iostream>
-// #include <string>
-// #include "../include/SoccerPlayer.hpp"
+#include <iostream>
+#include <string>
+#include "../include/SoccerPlayer.hpp"
+#include "../include/SoccerPlayerAttributes.hpp"
 
-// SoccerPlayer::SoccerPlayer() : resistance(0), qi(0) {}
+SoccerPlayer::SoccerPlayer() {}
 	
-// SoccerPlayer::~SoccerPlayer() {}
+SoccerPlayer::~SoccerPlayer() {}
 
-// std::string SoccerPlayer::getName() const {
-// 	return this->name;
-// }
-
-// void SoccerPlayer::setName(const std::string& newName) {
-// 	this->name = newName;
-// }
-
-// int SoccerPlayer::getResistance() const {
-// 	return resistance;
-// }
-
-// void SoccerPlayer::setResistance(int value) {
-// 	resistance = value;
-// }
-
-// int SoccerPlayer::getQi() const {
-//     return qi;
-// }
-
-// void SoccerPlayer::setQi(int value) {
-//     qi = value;
-// }
+std::string SoccerPlayer::SoccerPlayerAttributes::getName() const {
+	return this->name;
+}
 
 
 
-// void SoccerPlayer::informations() const {
+int SoccerPlayer::getDribbling() const {
+	return this->dribbling;
+}
 
-// 	std::string info = "Nome: " + this->getName() + " | " + "Resistencia: " + std::to_string(this->getResistance()) + 
-// 	" | Qi: " + std::to_string(this->getQi());
-// 	" | Velocidade: " + std::to_string(this->getSpeed()) +
-//  " | Chute: " + std::to_string(this->getShooting()) +
-//  " | Passe: " + std::to_string(this->getPassing()) +
-//  " | Drible: " + std::to_string(this->getDribbling());
+void SoccerPlayer::setDribbling(int value){
+	this->dribbling = value;
+}
 
-// 	std::cout << info << std::endl;
-// }
+int SoccerPlayer::getShooting() const {
+	return this->shooting;
+}
 
+void SoccerPlayer::setShooting(int value){
+	this->shooting = value;
+}
+
+int SoccerPlayer::getPassing() const {
+	return this->passing;
+}
+
+void SoccerPlayer::setPassing(int value){
+	this->passing = value;
+}
+
+#pragma region  Implementacao dos metodos abstratos
+
+
+
+void SoccerPlayer::SoccerPlayerAttributes::setName(const std::string& newName) {
+	this->name = newName;
+}
+
+int SoccerPlayer::SoccerPlayerAttributes::getResistance() const {
+	return resistance;
+}
+
+void SoccerPlayer::SoccerPlayerAttributes::setResistance(int value) {
+	resistance = value;
+}
+
+int SoccerPlayer::SoccerPlayerAttributes::getAgility() const {
+	return agility;
+}
+
+void SoccerPlayer::SoccerPlayerAttributes::setAgility(int value) {
+	agility = value;
+}
+
+int SoccerPlayer::SoccerPlayerAttributes::getStrength() const {
+	return strength;
+}
+
+void SoccerPlayer::SoccerPlayerAttributes::setStrength(int value) {
+	strength = value;
+}
+
+void SoccerPlayer::informations() const {
+
+	std::string info = "Nome: " + this->getName() + " | " + "Resistencia: " + std::to_string(this->getResistance()) + 
+	" | Agilidade: " + std::to_string(this->getAgility()) +
+	" | Chute: " + std::to_string(this->getShooting()) +
+	" | Passe: " + std::to_string(this->getPassing()) +
+	" | Drible: " + std::to_string(this->getDribbling());
+	std::cout << info << std::endl;
+}
+
+#pragma endregion
+
+
+
+/*
 #include <iostream>
 #include <string>
 #include "../include/SoccerPlayer.hpp"
@@ -91,3 +131,4 @@ void SoccerPlayer::informations() const {
 
 	std::cout << info << std::endl;
 }
+*/
