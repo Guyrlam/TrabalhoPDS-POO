@@ -11,8 +11,6 @@ std::string SoccerPlayer::SoccerPlayerAttributes::getName() const {
 	return this->name;
 }
 
-
-
 int SoccerPlayer::getDribbling() const {
 	return this->dribbling;
 }

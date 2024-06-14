@@ -1,37 +1,33 @@
 #include "../include/SoccerPlayerAttributes.hpp"
 
-SoccerPlayerAttributes::SoccerPlayerAttributes() : speed(0), shooting(0), passing(0), dribbling(0) {}
-
-SoccerPlayerAttributes::~SoccerPlayerAttributes() {}
-
-int SoccerPlayerAttributes::getSpeed() const {
-    return speed;
+std::string SoccerPlayerAttributes::getName() const {
+    return this->name;
 }
 
-void SoccerPlayerAttributes::setSpeed(int value) {
-    speed = value;
+void SoccerPlayerAttributes::setName(const std::string& newName) {
+    this->name = newName;
 }
 
-int SoccerPlayerAttributes::getShooting() const {
-    return shooting;
+int SoccerPlayerAttributes::getAgility() const {
+    return this->agility;
 }
 
-void SoccerPlayerAttributes::setShooting(int value) {
-    shooting = value;
+void SoccerPlayerAttributes::setAgility(int value) {
+    this->agility = value;
 }
 
-int SoccerPlayerAttributes::getPassing() const {
-    return passing;
+int SoccerPlayerAttributes::getStrength() const {
+    return this->strength;
 }
 
-void SoccerPlayerAttributes::setPassing(int value) {
-    passing = value;
+void SoccerPlayerAttributes::setStrength(int value) {
+    this->strength = value;
 }
 
-int SoccerPlayerAttributes::getDribbling() const {
-    return dribbling;
+int SoccerPlayerAttributes::getResistance() const {
+    return this->resistance;
 }
 
-void SoccerPlayerAttributes::setDribbling(int value) {
-    dribbling = value;
+void SoccerPlayerAttributes::setResistance(int value) {
+    this->resistance = value;
 }

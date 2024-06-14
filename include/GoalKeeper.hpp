@@ -1,6 +1,9 @@
 #ifndef GOAL_KEEPER_HPP
 #define GOAL_KEEPER_HPP
+
 #include "SoccerPlayerAttributes.hpp"
+#include <iostream>
+#include <string>
 
 class GoalKeeper : public SoccerPlayerAttributes {
 
@@ -10,16 +13,18 @@ class GoalKeeper : public SoccerPlayerAttributes {
 
     public:
         
+        GoalKeeper();
+        ~GoalKeeper(); 
+
         int getFlexibility() const;
         void setFlexibility(int value);
 
-        int getStrength() const;
-        void setStrength(int value);
+        int getDefense() const;
+        void setDefense(int value);
 
-        void informations() const;      
+        void informations() const override;      
 
-        GoalKeeper();
-        ~GoalKeeper();       
+      
 
 };
 

@@ -16,6 +16,9 @@ protected:
 
 public:
 
+    SoccerPlayerAttributes();
+    virtual ~SoccerPlayerAttributes();
+
     std::string getName() const;
     void setName(const std::string& newName);
 
@@ -28,7 +31,7 @@ public:
     int getResistance() const;
     void setResistance(int value);
 
-    virtual void informations() const;
+    virtual void informations() const = 0;
 };
 
 

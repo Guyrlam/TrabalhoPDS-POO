@@ -1,14 +1,17 @@
 #include <iostream>
 #include <string>
 #include "../include/GoalKeeper.hpp"
+#include "../include/SoccerPlayerAttributes.hpp"
 
+GoalKeeper::GoalKeeper () {}
 
+GoalKeeper::~GoalKeeper() {}
 
-std::string GoalKeeper::getName() const {
+std::string GoalKeeper::SoccerPlayerAttributes::getName() const {
 	return this->name;
 }
 
-void GoalKeeper::setName(const std::string& newName) {
+void GoalKeeper::SoccerPlayerAttributes::setName(const std::string& newName) {
 	this->name = newName;
 }
 
@@ -17,29 +20,55 @@ int GoalKeeper::getFlexibility() const{
 }
 
 void GoalKeeper::setFlexibility(int value) {
-	flexibility = value;
+	this->flexibility = value;
 }
 
-int GoalKeeper::getStrength() const{
-	return this->strength;
+int GoalKeeper::getDefense() const{
+	return this->defense;
 }
 
-void GoalKeeper::setStrength(int value) {
+void GoalKeeper::setDefense(int value) {
+	this->defense = value;
+}
+
+#pragma region  Implementacao dos metodos abstratos
+
+void GoalKeeper::SoccerPlayerAttributes::setName(const std::string& newName) {
+	this->name = newName;
+}
+
+int GoalKeeper::SoccerPlayerAttributes::getResistance() const {
+	return resistance;
+}
+
+void GoalKeeper::SoccerPlayerAttributes::setResistance(int value) {
+	resistance = value;
+}
+
+int GoalKeeper::SoccerPlayerAttributes::getAgility() const {
+	return agility;
+}
+
+void GoalKeeper::SoccerPlayerAttributes::setAgility(int value) {
+	agility = value;
+}
+
+int GoalKeeper::SoccerPlayerAttributes::getStrength() const {
+	return strength;
+}
+
+void GoalKeeper::SoccerPlayerAttributes::setStrength(int value) {
 	strength = value;
 }
 
 void GoalKeeper::informations() const {
 
-	std::string info = "Nome: " + this->getName() + " | " + "Flexibilidade: " + std::to_string(this->getFlexibility()) + 
-	" | Força: " + std::to_string(this->getStrength());
-	" | Velocidade: " + std::to_string(this->getSpeed()) +
-    " | Chute: " + std::to_string(this->getShooting()) +
-    " | Passe: " + std::to_string(this->getPassing()) +
-    " | Drible: " + std::to_string(this->getDribbling());
-
+	std::string info = "Nome: " + this->getName() + " | " + "Resistencia: " + std::to_string(this->getResistance()) + 
+	" | Agilidade: " + std::to_string(this->getAgility()) +
+	" | Flexibilidade: " + std::to_string(this->getFlexibility()) +
+	" | Defesa: " + std::to_string(this->getDefense());
 	std::cout << info << std::endl;
 }
 
-GoalKeeper::~GoalKeeper() {
+#pragma endregion
 
-}

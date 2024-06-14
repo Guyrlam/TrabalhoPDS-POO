@@ -7,25 +7,25 @@
 
 class SoccerPlayer : public SoccerPlayerAttributes {
 
-private:
-	int dribbling;
-	int shooting;
-	int passing;
+	private:
+		int dribbling;
+		int shooting;
+		int passing;
 
-public:
- 	SoccerPlayer();
-	~SoccerPlayer();
+	public:
+ 		SoccerPlayer();
+		~SoccerPlayer();
 
-	int getDribbling() const;
-    void setDribbling(int value);
+		int getDribbling() const;
+    	void setDribbling(int value);
 
-	int getPassing() const;
-    void setPassing(int value);
+		int getPassing() const;
+    	void setPassing(int value);
 
-	int getShooting() const;
-    void setShooting(int value);
+		int getShooting() const;
+    	void setShooting(int value);
 	
-	void informations() const override;
+		void informations() const override;
  };
 
 #endif //!SOCCER_PLAYER_HPP
