@@ -23,6 +23,7 @@ public:
 	void showTeams();
 	void playMatch();
 	~SoccerMatch();
+	//void playerDuel(SoccerPlayer *playerA, SoccerPlayer *playerB);
 	// to do: Fazer um método pra confronto e método reposicionar 
 
 };
