@@ -16,6 +16,9 @@ class SoccerPlayer : public SoccerPlayerAttributes {
  		SoccerPlayer();
 		~SoccerPlayer();
 
+		std::string getName() const override;
+    	void setName(const std::string& newName) override;
+
 		int getDribbling() const;
     	void setDribbling(int value);
 
@@ -27,6 +30,15 @@ class SoccerPlayer : public SoccerPlayerAttributes {
 
 		int getAttack() const;
 		int getDefense() const;
+
+		int getAgility() const override;
+    	void setAgility(int value) override;
+
+    	int getStrength() const override;
+    	void setStrength(int value) override;
+
+    	int getResistance() const override;
+    	void setResistance(int value) override;
 	
 		void informations() const override;
  };

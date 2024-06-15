@@ -15,6 +15,7 @@ private:
 	std::array<SoccerPlayer*, TOTAL_PLAYERS> soccerPlayers;
 	GoalKeeper* goalkeeper;
 	size_t numPlayers;
+
 public:
 	SoccerTeam();
 	

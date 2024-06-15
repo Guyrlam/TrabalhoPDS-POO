@@ -15,10 +15,10 @@ std::string Utils::readFile(const std::string& filePath) {
             throw std::runtime_error("Erro ao abrir o arquivo " + filePath);
         }
 
-        // Variável para armazenar o conteúdo do arquivo
+        // Variï¿½vel para armazenar o conteï¿½do do arquivo
         std::stringstream content;
 
-        // Variável para armazenar cada linha do arquivo
+        // Variï¿½vel para armazenar cada linha do arquivo
         std::string row;
 
         // Lendo e armazenando cada linha do arquivo
@@ -29,11 +29,11 @@ std::string Utils::readFile(const std::string& filePath) {
         // Fechando o arquivo
         file.close();
 
-        // Retornando o conteúdo do arquivo como uma string
+        // Retornando o conteï¿½do do arquivo como uma string
         return content.str();
         
     }catch (const std::exception& e) {
-        std::cerr << "Exceção: " << e.what() << std::endl;
+        std::cerr << "Excecao: " << e.what() << std::endl;
         return "";
     }
 }

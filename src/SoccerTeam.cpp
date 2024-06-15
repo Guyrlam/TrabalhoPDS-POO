@@ -32,18 +32,22 @@ void SoccerTeam::setName(const std::string& newName) {
 }
 
 void SoccerTeam::showSoccerPlayerInformations() {
-
     std::cout << "Informacoes do time:" << std::endl;
+
+    // Exibir informacoes dos jogadores de linha
     for (size_t i = 0; i < this->numPlayers; ++i) {
-        this->soccerPlayers[i]->informations(); // Chama o m�todo para imprimir informa��es sobre o objeto
+        this->soccerPlayers[i]->informations();
+    }
+
+    // Exibir informacoes do goleiro, se houver
+    if (this->goalkeeper != nullptr) {
+        this->goalkeeper->informations();
     }
 }
 
-std::array<SoccerPlayer*, TOTAL_PLAYERS> SoccerTeam::getSoccerPlayers() const{
-
+std::array<SoccerPlayer*, TOTAL_PLAYERS> SoccerTeam::getSoccerPlayers() const {
     return this->soccerPlayers;
 }
-
 
 
 SoccerTeam::~SoccerTeam() {

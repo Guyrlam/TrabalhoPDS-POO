@@ -43,41 +43,41 @@ int SoccerPlayer::getAttack() const{
 int SoccerPlayer::getDefense() const{
 	// To do: Discutir como melhorar a formula de defesa
 
-	int attack = this->getAgility() + this->getStrength() + this->getResistance();
-	return attack;
+	int defense = this->getAgility() + this->getStrength() + this->getResistance();
+	return defense;
 }
 
 #pragma region  Implementacao dos metodos abstratos
 
-std::string SoccerPlayer::SoccerPlayerAttributes::getName() const {
+std::string SoccerPlayer::getName() const {
 	return this->name;
 }
 
-void SoccerPlayer::SoccerPlayerAttributes::setName(const std::string& newName) {
+void SoccerPlayer::setName(const std::string& newName) {
 	this->name = newName;
 }
 
-int SoccerPlayer::SoccerPlayerAttributes::getResistance() const {
+int SoccerPlayer::getResistance() const {
 	return resistance;
 }
 
-void SoccerPlayer::SoccerPlayerAttributes::setResistance(int value) {
+void SoccerPlayer::setResistance(int value) {
 	resistance = value;
 }
 
-int SoccerPlayer::SoccerPlayerAttributes::getAgility() const {
+int SoccerPlayer::getAgility() const {
 	return agility;
 }
 
-void SoccerPlayer::SoccerPlayerAttributes::setAgility(int value) {
+void SoccerPlayer::setAgility(int value) {
 	agility = value;
 }
 
-int SoccerPlayer::SoccerPlayerAttributes::getStrength() const {
+int SoccerPlayer::getStrength() const {
 	return strength;
 }
 
-void SoccerPlayer::SoccerPlayerAttributes::setStrength(int value) {
+void SoccerPlayer::setStrength(int value) {
 	strength = value;
 }
 

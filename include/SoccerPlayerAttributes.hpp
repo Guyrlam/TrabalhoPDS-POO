@@ -16,17 +16,17 @@ protected:
 
 public:
 
-    std::string getName() const;
-    void setName(const std::string& newName);
+    virtual std::string getName() const = 0;
+    virtual void setName(const std::string& newName) = 0;
 
-    int getAgility() const;
-    void setAgility(int value);
+    virtual int getAgility() const = 0;
+    virtual void setAgility(int value) = 0;
 
-    int getStrength() const;
-    void setStrength(int value);
+    virtual int getStrength() const = 0;
+    virtual void setStrength(int value) = 0;
 
-    int getResistance() const;
-    void setResistance(int value);
+    virtual int getResistance() const = 0;
+    virtual void setResistance(int value) = 0;
 
     virtual void informations() const = 0;
 };
