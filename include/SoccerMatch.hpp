@@ -4,10 +4,11 @@
 #include "SoccerTeam.hpp"
 #define PLAYERS_PER_TEAM 3
 
+
 class SoccerMatch {
 
 private:
-	SoccerTeam *teamA; // Ser� o time a inciar a partida
+	SoccerTeam *teamA; // Sera o time a inciar a partida
 	SoccerTeam *teamB;
 	int teamAScore;
 	int teamBScore;

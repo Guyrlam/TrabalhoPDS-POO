@@ -9,12 +9,12 @@ int main() {
 	SoccerPlayer* player1 = new SoccerPlayer();
 	SoccerPlayer* player2 = new SoccerPlayer();
 	SoccerPlayer* player3 = new SoccerPlayer();
-	GoalKeeper* goalKepper1 = new GoalKeeper();
+	GoalKeeper* goalKeeper1 = new GoalKeeper();
 
 	SoccerPlayer* player4 = new SoccerPlayer();
 	SoccerPlayer* player5 = new SoccerPlayer();
 	SoccerPlayer* player6 = new SoccerPlayer();
-	GoalKeeper* goalKepper2 = new GoalKeeper();
+	GoalKeeper* goalKeeper2 = new GoalKeeper();
 
 	SoccerTeam* team1 = new SoccerTeam();
 	SoccerTeam* team2 = new SoccerTeam();
@@ -68,29 +68,29 @@ int main() {
 	player6->setShooting(70); 
 	player6->setPassing(20); 
 
-	goalKepper1->setName("Fabio");
-	goalKepper1->setResistance(50);
-	goalKepper1->setAgility(80); 
-	goalKepper1->setStrength(30); 
-	goalKepper1->setFlexibility(20); 
-	goalKepper1->setDefense(80); 
+	goalKeeper1->setName("Fabio");
+	goalKeeper1->setResistance(50);
+	goalKeeper1->setAgility(80); 
+	goalKeeper1->setStrength(30); 
+	goalKeeper1->setFlexibility(20); 
+	goalKeeper1->setDefense(80); 
 
-	goalKepper2->setName("Victor");
-	goalKepper2->setResistance(60);
-	goalKepper2->setAgility(50); 
-	goalKepper2->setStrength(30); 
-	goalKepper2->setFlexibility(20); 
-	goalKepper2->setDefense(100);
+	goalKeeper2->setName("Victor");
+	goalKeeper2->setResistance(60);
+	goalKeeper2->setAgility(50); 
+	goalKeeper2->setStrength(30); 
+	goalKeeper2->setFlexibility(20); 
+	goalKeeper2->setDefense(100);
 
 	team1->insertSoccerPlayer(player1);
 	team1->insertSoccerPlayer(player2);
 	team1->insertSoccerPlayer(player3);
-	team1->insertGoalKeeper(goalKepper1);
+	team1->insertGoalKeeper(goalKeeper1);
 
 	team2->insertSoccerPlayer(player4);
 	team2->insertSoccerPlayer(player5);
 	team2->insertSoccerPlayer(player6);
-	team2->insertGoalKeeper(goalKepper2);
+	team2->insertGoalKeeper(goalKeeper2);
 
 	team1->showSoccerPlayerInformations();
 	team2->showSoccerPlayerInformations();

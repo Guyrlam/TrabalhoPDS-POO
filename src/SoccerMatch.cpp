@@ -104,8 +104,8 @@ void SoccerMatch::nextRound(){
 
 		// O empate eh da defesa, só podera realizar o chute ao gol se tiver duas ou mais vitorias no ataque
 		if(attackVictory >= 2){
-
 			if(this->attemptGoal(restAttack, this->teamB->getGoalKepper()))
+				std::cout << this->teamB->getGoalKepper()->getDefense() << std::endl;
 				this->updateScore(this->teamA);
 		}
 	}else{
@@ -148,6 +148,7 @@ int SoccerMatch::playersConfrontation(SoccerPlayer* attacker, SoccerPlayer* defe
 
 bool SoccerMatch::attemptGoal(int attackValue, GoalKeeper* keeper) {
     int defenseGoalKeeper = keeper->getDefense() + keeper->getFlexibility();
+	//std::cout << defenseGoalKeeper << std::endl;
 
     return attackValue > defenseGoalKeeper;
 }
@@ -187,6 +188,7 @@ void SoccerMatch::printArray(SoccerTeam* teamA) {
     }
     
 }
+
 
 
 	

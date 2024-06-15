@@ -38,7 +38,7 @@ int SoccerPlayer::getAttack() const{
 	int attack = this->getAgility() + this->getPassing() + this->getShooting() + this->getDribbling() + this->getStrength() + this->getResistance();
 	
 	return attack;
-}
+} 
 
 int SoccerPlayer::getDefense() const{
 	// To do: Discutir como melhorar a formula de defesa

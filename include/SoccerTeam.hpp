@@ -7,12 +7,14 @@
 #include "SoccerPlayer.hpp"
 #include "GoalKeeper.hpp"
 #define TOTAL_PLAYERS 6
+//#define PLAYERS_RESERVE_TEAM 3
 
 class SoccerTeam {
 
 private:
 	std::string name;
 	std::array<SoccerPlayer*, TOTAL_PLAYERS> soccerPlayers;
+	//std::array<SoccerPlayer*, PLAYERS_RESERVE_TEAM> ReservePlayers;
 	GoalKeeper* goalkeeper;
 	size_t numPlayers;
 
