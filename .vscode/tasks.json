@@ -1,0 +1,43 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build MeuProjeto",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/build",
+                "--target",
+                "main",
+                "--config",
+                "Debug"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Building MeuProjeto"
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/build",
+                "--target",
+                "clean-all",
+                "--config",
+                "Debug"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "Cleaning project"
+        }
+    ]
+}
