@@ -11,6 +11,7 @@ class SoccerPlayer : public SoccerPlayerAttributes {
 		int dribbling;
 		int shooting;
 		int passing;
+		int priority;
 
 	public:
  		SoccerPlayer();
