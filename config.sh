@@ -16,6 +16,14 @@ apt install -y g++
 apt-get install -y build-essential
 snap install cmake --classic
 apt-get install -y gdb
+mkdir build           # Cria a pasta 'build'
+cd build              # Entra na pasta 'build'
+cmake ..              # Executa o CMake na pasta atual
+make                  # Compila o código conforme o Makefile gerado pelo CMake
+cd ..
+chmod -R a+rwx build  # Garante acesso de leitura, escrita e execução para todos na pasta 'build'
+chmod -R a+rwx bin
+
 
 # Mensagem de conclusão
 echo "Instalação completa."
