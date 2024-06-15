@@ -177,20 +177,27 @@ SoccerMatch::~SoccerMatch(){
 #pragma region  Implementacao substituição jogadores
 
 /*Funcao para mostrar todos os jogadores do time
-void SoccerMatch::printArray(int arr[], TOTAL_PLAYERS) {
+void SoccerMatch::printArray(SoccerTeam* teamA) {
     std::array<SoccerPlayer*, TOTAL_PLAYERS> playersTeamA = this->teamA->getSoccerPlayers();
-	
+	std::array<SoccerPlayer*, PLAYERS_PER_TEAM> positions;
 	
 	
 	for(int i = 0; i < TOTAL_PLAYERS; i++) {
-        cout << arr[i] << " ";
+        std::cout << i + 1 << ": " << playersTeam[i]->getName() << std::endl;
     }
-    cout << endl;
+    
 }
-void swapElements(int arr[], int index1, int index2) {
-    int temp = arr[index1];
-    arr[index1] = arr[index2];
-    arr[index2] = temp;
+
+
+	
+void swapElements(SoccerTeam* teamA, int index1, int index2) {
+    std::array<SoccerPlayer*, TOTAL_PLAYERS> playersTeamA = this->teamA->getSoccerPlayers();
+	std::array<SoccerPlayer*, PLAYERS_PER_TEAM> positions;
+
+	
+	int temp = PlayersTeamA[index1];
+    PlayersTeamA[index1] = PlayersTeamA[index2];
+    PlayersTeamA[index2] = temp;
 
 
 
