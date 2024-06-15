@@ -44,23 +44,79 @@ void SoccerMatch::showTeams() {
 
 }
 
+// To do: Refatorar funcao
+void SoccerMatch::nextRound(){
+	
+	std::array<SoccerPlayer*, TOTAL_PLAYERS> playersTeamA = this->teamA->getSoccerPlayers();
+	std::array<SoccerPlayer*, TOTAL_PLAYERS> playersTeamB = this->teamB->getSoccerPlayers();
+
+	int attackVictory = 0;
+	int restAttack = 0;
+
+	if(round % 2 != 0){
+
+		// Realizando todos os confrontos
+		for(int i = 0; i < PLAYERS_PER_TEAM; i++){
+			// Se a funcao confronto retornar um valor positivo o ataque individual funcionou
+			int returnConfrontation = playersConfrontation(playersTeamA[i], playersTeamB[i]);
+			
+			if(returnConfrontation > 0){
+				restAttack += returnConfrontation;
+				attackVictory++;
+			}
+		}
+
+		// O empate eh da defesa, só podera realizar o chute ao gol se tiver duas ou mais vitorias no ataque
+		if(attackVictory >= 2 && this->attemptGoal(restAttack, this->teamB->getGoalKepper())){
+			this->updateScore(this->teamA);
+		}
+	}else{
+
+		// Realizando todos os confrontos
+		for(int i = 0; i < PLAYERS_PER_TEAM; i++){
+			// Se a funcao confronto retornar um valor positivo o ataque individual funcionou
+			int returnConfrontation = playersConfrontation(playersTeamB[i], playersTeamA[i]);
+			
+			if(returnConfrontation > 0){
+				restAttack += returnConfrontation;
+				attackVictory++;
+			}
+		}
+
+		// O empate eh da defesa, só podera realizar o chute ao gol se tiver duas ou mais vitorias no ataque
+		if(attackVictory >= 2 && this->attemptGoal(restAttack, this->teamA->getGoalKepper())){
+			this->updateScore(this->teamB);
+		}
+
+	}
+
+	// Vai para o proximo round
+	round++;
+}
+
+
+
 // Criar um método de confronto entre jogadores
-
 int SoccerMatch::playersConfrontation(SoccerPlayer* attacker, SoccerPlayer* defender) {
-    int attackValue = attacker->getDribbling() + attacker->getShooting() + attacker->getPassing();
-    int defenseValue = defender->getAgility() + defender->getStrength() + defender->getResistance();
-    return attackValue - defenseValue;
+
+    int attackValue = attacker->getAttack();
+    int defenseValue = defender->getDefense();
+
+	// Aqui podera ser adicionado aleatoriedade da partida. Ex.: Esta chovendo ou muito quente (afeta o coletivo). Discutir se sera adionado em eventos da partida
+	int restAttack = attackValue - defenseValue;
+
+    return restAttack;
 }
 
-// Método para chance de gol
+// Metodo para chance de gol
 
-bool SoccerMatch::attemptGoal(SoccerPlayer* attacker, GoalKeeper* keeper) {
-    int attackValue = attacker->getShooting();
-    int defenseValue = keeper->getDefense() + keeper->getFlexibility();
-    return attackValue > defenseValue;
+bool SoccerMatch::attemptGoal(int attackValue, GoalKeeper* keeper) {
+    int defenseGoalKeeper = keeper->getDefense() + keeper->getFlexibility();
+
+    return attackValue > defenseGoalKeeper;
 }
 
-//Método para atualizar o placar
+//Metodo para atualizar o placar
 
 void SoccerMatch::updateScore(SoccerTeam* scoringTeam) {
     if (scoringTeam == teamA) {
@@ -70,24 +126,7 @@ void SoccerMatch::updateScore(SoccerTeam* scoringTeam) {
     }
     std::cout << "Placar atualizado: Team A " << teamAScore << " - " << teamBScore << " Team B" << std::endl;
 }
-/*
-void SoccerMatch::nextRound() {
 
-	int attack = 0;
-	int defese = 0;
-	int leftOver = 0;
-
-	if (this->round % 2 != 0) {
-			
-		for (int i = 0; i < PLAYERS_PER_TEAM, i++) {
-			
-		}
-
-	}
-
-}*/
-
-// Ver se a partida deve continuar
 
 void SoccerMatch::playMatch() {
     while (teamAScore < 3 && teamBScore < 3) {

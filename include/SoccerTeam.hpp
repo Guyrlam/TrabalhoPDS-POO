@@ -6,7 +6,7 @@
 #include <array>
 #include "SoccerPlayer.hpp"
 #include "GoalKeeper.hpp"
-#define TOTAL_PLAYERS 7
+#define TOTAL_PLAYERS 6
 
 class SoccerTeam {
 
@@ -22,7 +22,11 @@ public:
 	void setName(const std::string& newName);
 	void insertSoccerPlayer(SoccerPlayer* soccerPlayer);
 	void insertGoalKeeper(GoalKeeper* goalkeeper);
+	GoalKeeper *getGoalKepper() const;
+
 	void showSoccerPlayerInformations();
+
+	std::array<SoccerPlayer*, TOTAL_PLAYERS> getSoccerPlayers() const;
 
 	~SoccerTeam();
 };

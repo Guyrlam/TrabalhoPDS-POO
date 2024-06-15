@@ -2,7 +2,7 @@
 #define SOCCER_MATCH_HPP
 #include <iostream>
 #include "SoccerTeam.hpp"
-#define PLAYERS_PER_TEAM 4
+#define PLAYERS_PER_TEAM 3
 
 class SoccerMatch {
 
@@ -16,7 +16,7 @@ private:
 	void nextRound();
 	int playersConfrontation(SoccerPlayer* attacker, SoccerPlayer* defender);
     void updateScore(SoccerTeam* scoringTeam);
-    bool attemptGoal(SoccerPlayer* attacker, GoalKeeper* keeper);
+    bool attemptGoal(int attackValue, GoalKeeper* keeper);
 
 public:
 	SoccerMatch(SoccerTeam* leftSideTeam, SoccerTeam* rightSideTeam);

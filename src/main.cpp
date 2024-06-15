@@ -2,7 +2,7 @@
 #include "../include/SoccerPlayer.hpp"
 #include "../include/SoccerTeam.hpp"
 #include "../include/SoccerMatch.hpp"
-
+#include "../include/GoalKeeper.hpp"
 
 int main() {
 
@@ -18,6 +18,8 @@ int main() {
 
 	SoccerTeam* team1 = new SoccerTeam();
 	SoccerTeam* team2 = new SoccerTeam();
+
+	GoalKeeper *goalKepper = new GoalKeeper();
 
 	/*player1->setName("Vini Jr");
 	player1->setAttack(90);

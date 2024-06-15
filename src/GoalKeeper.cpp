@@ -7,14 +7,6 @@ GoalKeeper::GoalKeeper () {}
 
 GoalKeeper::~GoalKeeper() {}
 
-std::string GoalKeeper::SoccerPlayerAttributes::getName() const {
-	return this->name;
-}
-
-void GoalKeeper::SoccerPlayerAttributes::setName(const std::string& newName) {
-	this->name = newName;
-}
-
 int GoalKeeper::getFlexibility() const{
 	return this->flexibility;
 }
@@ -33,32 +25,36 @@ void GoalKeeper::setDefense(int value) {
 
 #pragma region  Implementacao dos metodos abstratos
 
+std::string GoalKeeper::SoccerPlayerAttributes::getName() const {
+	return this->name;
+}
+
 void GoalKeeper::SoccerPlayerAttributes::setName(const std::string& newName) {
 	this->name = newName;
 }
 
 int GoalKeeper::SoccerPlayerAttributes::getResistance() const {
-	return resistance;
+	return this->resistance;
 }
 
 void GoalKeeper::SoccerPlayerAttributes::setResistance(int value) {
-	resistance = value;
+	this->resistance = value;
 }
 
 int GoalKeeper::SoccerPlayerAttributes::getAgility() const {
-	return agility;
+	return this->agility;
 }
 
 void GoalKeeper::SoccerPlayerAttributes::setAgility(int value) {
-	agility = value;
+	this->agility = value;
 }
 
 int GoalKeeper::SoccerPlayerAttributes::getStrength() const {
-	return strength;
+	return this->strength;
 }
 
 void GoalKeeper::SoccerPlayerAttributes::setStrength(int value) {
-	strength = value;
+	this->strength = value;
 }
 
 void GoalKeeper::informations() const {

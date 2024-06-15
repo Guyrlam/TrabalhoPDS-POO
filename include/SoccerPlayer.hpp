@@ -24,6 +24,9 @@ class SoccerPlayer : public SoccerPlayerAttributes {
 
 		int getShooting() const;
     	void setShooting(int value);
+
+		int getAttack() const;
+		int getDefense() const;
 	
 		void informations() const override;
  };

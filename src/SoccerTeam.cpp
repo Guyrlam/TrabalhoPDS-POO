@@ -19,6 +19,10 @@ void SoccerTeam::insertGoalKeeper(GoalKeeper* gk) {
     this->goalkeeper = gk;
 }
 
+GoalKeeper *SoccerTeam::getGoalKepper() const{
+    this->goalkeeper;
+}
+
 std::string SoccerTeam::getName() const {
     return this->name;
 }
@@ -34,6 +38,13 @@ void SoccerTeam::showSoccerPlayerInformations() {
         this->soccerPlayers[i]->informations(); // Chama o m�todo para imprimir informa��es sobre o objeto
     }
 }
+
+std::array<SoccerPlayer*, TOTAL_PLAYERS> SoccerTeam::getSoccerPlayers() const{
+
+    return this->soccerPlayers;
+}
+
+
 
 SoccerTeam::~SoccerTeam() {
 
