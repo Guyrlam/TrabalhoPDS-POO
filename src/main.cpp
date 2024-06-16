@@ -8,7 +8,7 @@
 int main(int argc, char* args[])
 {
 
-	/* SoccerPlayer* player1 = new SoccerPlayer();
+	SoccerPlayer* player1 = new SoccerPlayer();
 	SoccerPlayer* player2 = new SoccerPlayer();
 	SoccerPlayer* player3 = new SoccerPlayer();
 	GoalKeeper* goalKeeper1 = new GoalKeeper();
@@ -100,7 +100,7 @@ int main(int argc, char* args[])
 
 	//soccerMatch.showTeams();
 
-	soccerMatch.playMatch(); */
+	soccerMatch.playMatch();
 
 	// Start up SDL and create window
 	if (!init())
