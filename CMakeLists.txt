@@ -11,6 +11,13 @@ set(INCLUDE_DIR include)
 set(BUILD_DIR build)
 set(BIN_DIR ${CMAKE_CURRENT_BINARY_DIR}/../bin)  # Define o diretório bin no nível acima de build
 
+# Find SDL2 using pkg-config
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(SDL2 REQUIRED sdl2)
+pkg_check_modules(SDL2_IMAGE REQUIRED SDL2_image)
+
+include_directories(${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS})
+
 # Files
 file(GLOB SRC_FILES "${SRC_DIR}/*.cpp")
 set(OBJ_FILES "")
@@ -23,6 +30,7 @@ endforeach()
 # Targets
 add_executable(main ${SRC_FILES})
 target_include_directories(main PRIVATE ${INCLUDE_DIR})
+target_link_libraries(main ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
 
 # Set output directories
 set_target_properties(main PROPERTIES
