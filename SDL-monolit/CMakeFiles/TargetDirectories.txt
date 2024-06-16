@@ -1,3 +1,0 @@
-/home/loki/repos/SDL-test/CMakeFiles/main.dir
-/home/loki/repos/SDL-test/CMakeFiles/edit_cache.dir
-/home/loki/repos/SDL-test/CMakeFiles/rebuild_cache.dir
