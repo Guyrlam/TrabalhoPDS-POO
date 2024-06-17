@@ -22,7 +22,7 @@ int main(int argc, char* args[])
 	SoccerTeam* team2 = new SoccerTeam();
 
 	player1->setName("Vini Jr");
-	player1->setResistance(40);
+	player1->setResistance(1);
 	player1->setAgility(50);
 	player1->setStrength(20);
 	player1->setDribbling(60);
@@ -30,7 +30,7 @@ int main(int argc, char* args[])
 	player1->setPassing(30);
 
 	player2->setName("Rodrygo");
-	player2->setResistance(70);
+	player2->setResistance(1);
 	player2->setAgility(50);
 	player2->setStrength(30);
 	player2->setDribbling(20);
@@ -38,7 +38,7 @@ int main(int argc, char* args[])
 	player2->setPassing(30);
 
 	player3->setName("Marcelo");
-	player3->setResistance(40);
+	player3->setResistance(1);
 	player3->setAgility(50);
 	player3->setStrength(40);
 	player3->setDribbling(40);
@@ -46,7 +46,7 @@ int main(int argc, char* args[])
 	player3->setPassing(70);
 
 	player4->setName("Kroos");
-	player4->setResistance(20);
+	player4->setResistance(1);
 	player4->setAgility(40);
 	player4->setStrength(40);
 	player4->setDribbling(70);
@@ -54,7 +54,7 @@ int main(int argc, char* args[])
 	player4->setPassing(30);
 
 	player5->setName("Modric");
-	player5->setResistance(50);
+	player5->setResistance(1);
 	player5->setAgility(30);
 	player5->setStrength(20);
 	player5->setDribbling(40);
@@ -62,7 +62,7 @@ int main(int argc, char* args[])
 	player5->setPassing(70);
 
 	player6->setName("Cristiano");
-	player6->setResistance(40);
+	player6->setResistance(1);
 	player6->setAgility(20);
 	player6->setStrength(50);
 	player6->setDribbling(40);
@@ -70,14 +70,14 @@ int main(int argc, char* args[])
 	player6->setPassing(20);
 
 	goalKeeper1->setName("Fabio");
-	goalKeeper1->setResistance(50);
+	goalKeeper1->setResistance(1);
 	goalKeeper1->setAgility(80);
 	goalKeeper1->setStrength(30);
 	goalKeeper1->setFlexibility(20);
 	goalKeeper1->setDefense(80);
 
 	goalKeeper2->setName("Victor");
-	goalKeeper2->setResistance(60);
+	goalKeeper2->setResistance(1);
 	goalKeeper2->setAgility(50);
 	goalKeeper2->setStrength(30);
 	goalKeeper2->setFlexibility(20);
@@ -99,9 +99,8 @@ int main(int argc, char* args[])
 	SoccerMatch soccerMatch = SoccerMatch(team1, team2);
 
 	//soccerMatch.showTeams();
-	std::cout << team1->getGoalKepper()->getName() << std::endl;
-	//soccerMatch.playMatch();
-	
+	soccerMatch.playMatch();
+	/*
 	// Start up SDL and create window
 	if (!init())
 	{
@@ -174,6 +173,6 @@ int main(int argc, char* args[])
 	
 	// Free resources and close SDL
 	close();
-
+	*/
 	return 0;
 }

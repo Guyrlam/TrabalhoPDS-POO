@@ -39,36 +39,36 @@ void SoccerPlayer::setPassing(int value){
 
 // Todo: Podera ser adicionado aleatoriedade para o jogador. Ex.: Torcidada xingou o jogador
 
+// Agilidade
+// Chute 3
+// Força 
+// Dible 2
+// Passe 2
+
 int SoccerPlayer::getAttack() const
 {
-    auto adjustAttribute = [](int value, int priority) {
-        switch (priority) {
-            case 1:
-                return value * 2;
-            case 2:
-                return static_cast<int>(value * 1.5);
-            default:
-                return value;
-        }
-    };
+    int attack = (
+			
+				(this->getAgility()) + 
+				(3*this->getShooting()) + 
+				(this->getStrength()) + 
+				(2*this->getDribbling()) + 
+				(2*this->getPassing())
 
-    int attack = 0;
-    // attack += adjustAttribute(this->getAgility(), this->priority);   // assuming priority is set correctly for each attribute
-    // attack += adjustAttribute(this->getPassing(), this->priority);
-    // attack += adjustAttribute(this->getShooting(), this->priority);
-    // attack += adjustAttribute(this->getDribbling(), this->priority);
-    // attack += adjustAttribute(this->getStrength(), this->priority);
-    // attack += adjustAttribute(this->getResistance(), this->priority);
-	
-	// std::cout << "Attack value: " << attack << std::endl;  // Print the attack value
-    return attack;
+				) *this->getResistance();
+
+	return attack;
 }
 
+// força 5
+// agility 4
+// resistencia 
 
 int SoccerPlayer::getDefense() const{
 	// To do: Discutir como melhorar a formula de defesa
 
-	int defense = this->getAgility() + this->getStrength() + this->getResistance();
+	int defense = ((5*this->getAgility()) + (4*this->getStrength()))*this->getResistance();
+	
 	return defense;
 }
 
