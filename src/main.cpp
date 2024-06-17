@@ -11,86 +11,152 @@ int main(int argc, char* args[])
 	SoccerPlayer* player1 = new SoccerPlayer();
 	SoccerPlayer* player2 = new SoccerPlayer();
 	SoccerPlayer* player3 = new SoccerPlayer();
-	GoalKeeper* goalKeeper1 = new GoalKeeper();
-
 	SoccerPlayer* player4 = new SoccerPlayer();
 	SoccerPlayer* player5 = new SoccerPlayer();
 	SoccerPlayer* player6 = new SoccerPlayer();
+	GoalKeeper* goalKeeper1 = new GoalKeeper();
+
+	SoccerPlayer* player7 = new SoccerPlayer();
+	SoccerPlayer* player8 = new SoccerPlayer();
+	SoccerPlayer* player9 = new SoccerPlayer();
+	SoccerPlayer* player10 = new SoccerPlayer();
+	SoccerPlayer* player11 = new SoccerPlayer();
+	SoccerPlayer* player12 = new SoccerPlayer();
 	GoalKeeper* goalKeeper2 = new GoalKeeper();
 
 	SoccerTeam* team1 = new SoccerTeam();
 	SoccerTeam* team2 = new SoccerTeam();
-
-	player1->setName("Vini Jr");
+	//Time Atletico
+	player1->setName("Hulk");
 	player1->setResistance(1);
-	player1->setAgility(50);
-	player1->setStrength(20);
+	player1->setAgility(75);
+	player1->setStrength(90);
 	player1->setDribbling(60);
-	player1->setShooting(60);
-	player1->setPassing(30);
+	player1->setShooting(95);
+	player1->setPassing(60);
 
-	player2->setName("Rodrygo");
+	player2->setName("Tardelli");
 	player2->setResistance(1);
-	player2->setAgility(50);
-	player2->setStrength(30);
-	player2->setDribbling(20);
-	player2->setShooting(50);
-	player2->setPassing(30);
+	player2->setAgility(45);
+	player2->setStrength(40);
+	player2->setDribbling(40);
+	player2->setShooting(60);
+	player2->setPassing(40);
 
-	player3->setName("Marcelo");
+	player3->setName("Ronaldinho Gaucho");
 	player3->setResistance(1);
 	player3->setAgility(50);
-	player3->setStrength(40);
-	player3->setDribbling(40);
-	player3->setShooting(50);
-	player3->setPassing(70);
+	player3->setStrength(50);
+	player3->setDribbling(100);
+	player3->setShooting(95);
+	player3->setPassing(100);
 
-	player4->setName("Kroos");
+	player4->setName("Rever");
 	player4->setResistance(1);
-	player4->setAgility(40);
-	player4->setStrength(40);
-	player4->setDribbling(70);
-	player4->setShooting(10);
-	player4->setPassing(30);
+	player4->setAgility(70);
+	player4->setStrength(90);
+	player4->setDribbling(30);
+	player4->setShooting(30);
+	player4->setPassing(45);
 
-	player5->setName("Modric");
+	player5->setName("Luan");
 	player5->setResistance(1);
-	player5->setAgility(30);
-	player5->setStrength(20);
-	player5->setDribbling(40);
-	player5->setShooting(30);
-	player5->setPassing(70);
+	player5->setAgility(50);
+	player5->setStrength(40);
+	player5->setDribbling(55);
+	player5->setShooting(60);
+	player5->setPassing(80);
 
-	player6->setName("Cristiano");
+	player6->setName("Donizete");
 	player6->setResistance(1);
-	player6->setAgility(20);
+	player6->setAgility(40);
 	player6->setStrength(50);
-	player6->setDribbling(40);
-	player6->setShooting(70);
-	player6->setPassing(20);
+	player6->setDribbling(65);
+	player6->setShooting(65);
+	player6->setPassing(45);
 
-	goalKeeper1->setName("Fabio");
+	goalKeeper1->setName("Vitor");
 	goalKeeper1->setResistance(1);
-	goalKeeper1->setAgility(80);
-	goalKeeper1->setStrength(30);
-	goalKeeper1->setFlexibility(20);
-	goalKeeper1->setDefense(80);
+	goalKeeper1->setAgility(30);
+	goalKeeper1->setStrength(40);
+	goalKeeper1->setFlexibility(90);
+	goalKeeper1->setDefense(95);
 
-	goalKeeper2->setName("Victor");
+	
+	
+	//Time Cruzeiro
+	player7->setName("Ronaldo fenomeo");
+	player7->setResistance(1);
+	player7->setAgility(95);
+	player7->setStrength(70);
+	player7->setDribbling(90);
+	player7->setShooting(95);
+	player7->setPassing(50);
+
+	player8->setName("Tostao");
+	player8->setResistance(1);
+	player8->setAgility(60);
+	player8->setStrength(35);
+	player8->setDribbling(45);
+	player8->setShooting(55);
+	player8->setPassing(55);
+
+	player9->setName("Everton Ribeiro");
+	player9->setResistance(1);
+	player9->setAgility(60);
+	player9->setStrength(50);
+	player9->setDribbling(55);
+	player9->setShooting(70);
+	player9->setPassing(50);
+
+	player10->setName("Alex");
+	player10->setResistance(1);
+	player10->setAgility(40);
+	player10->setStrength(70);
+	player10->setDribbling(65);
+	player10->setShooting(35);
+	player10->setPassing(45);
+
+	player11->setName("Sorin");
+	player11->setResistance(1);
+	player11->setAgility(45);
+	player11->setStrength(55);
+	player11->setDribbling(60);
+	player11->setShooting(60);
+	player11->setPassing(75);
+
+	player12->setName("Marcelo Moreno");
+	player12->setResistance(1);
+	player12->setAgility(45);
+	player12->setStrength(50);
+	player12->setDribbling(55);
+	player12->setShooting(70);
+	player12->setPassing(50);
+
+	goalKeeper2->setName("Fabio");
 	goalKeeper2->setResistance(1);
-	goalKeeper2->setAgility(50);
-	goalKeeper2->setStrength(30);
-	goalKeeper2->setFlexibility(20);
-	goalKeeper2->setDefense(100);
+	goalKeeper2->setAgility(35);
+	goalKeeper2->setStrength(45);
+	goalKeeper2->setFlexibility(85);
+	goalKeeper2->setDefense(90);
 
+	team1->setName("Atletico");
+	
 	team1->insertSoccerPlayer(player1);
 	team1->insertSoccerPlayer(player2);
 	team1->insertSoccerPlayer(player3);
+	team1->insertSoccerPlayer(player4);
+	team1->insertSoccerPlayer(player5);
+	team1->insertSoccerPlayer(player6);
 	team1->insertGoalKeeper(goalKeeper1);
 
-	team2->insertSoccerPlayer(player4);
-	team2->insertSoccerPlayer(player5);
-	team2->insertSoccerPlayer(player6);
+	team2->setName("Cruzeiro");
+	team2->insertSoccerPlayer(player7);
+	team2->insertSoccerPlayer(player8);
+	team2->insertSoccerPlayer(player9);
+	team2->insertSoccerPlayer(player10);
+	team2->insertSoccerPlayer(player11);
+	team2->insertSoccerPlayer(player12);
 	team2->insertGoalKeeper(goalKeeper2);
 
 	team1->showSoccerPlayerInformations();
