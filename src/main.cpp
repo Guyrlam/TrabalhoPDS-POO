@@ -101,7 +101,7 @@ int main(int argc, char* args[])
 	//soccerMatch.showTeams();
 	std::cout << team1->getGoalKepper()->getName() << std::endl;
 	//soccerMatch.playMatch();
-	/*
+	
 	// Start up SDL and create window
 	if (!init())
 	{
@@ -174,6 +174,6 @@ int main(int argc, char* args[])
 	
 	// Free resources and close SDL
 	close();
-*/
+
 	return 0;
 }

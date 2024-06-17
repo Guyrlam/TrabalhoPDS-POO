@@ -267,7 +267,7 @@ bool loadMedia()
 
     try
     {
-        if (!gButtonSpriteSheetTexture.loadFromFile("./button.png"))
+        if (!gButtonSpriteSheetTexture.loadFromFile("./game_graphics/Button/button.png"))
         {
             throw std::runtime_error("Failed to load button sprite texture!");
         }
