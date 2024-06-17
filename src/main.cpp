@@ -96,11 +96,11 @@ int main(int argc, char* args[])
 	team1->showSoccerPlayerInformations();
 	team2->showSoccerPlayerInformations();
 
-	/*SoccerMatch soccerMatch = SoccerMatch(team1, team2);
+	SoccerMatch soccerMatch = SoccerMatch(team1, team2);
 
 	//soccerMatch.showTeams();
-
-	soccerMatch.playMatch();
+	std::cout << team1->getGoalKepper()->getName() << std::endl;
+	//soccerMatch.playMatch();
 	/*
 	// Start up SDL and create window
 	if (!init())

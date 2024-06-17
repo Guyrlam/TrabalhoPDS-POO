@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(shooter-cmake2)
+project(main)
 
 # Definir o diretório de saída para o executável final
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)

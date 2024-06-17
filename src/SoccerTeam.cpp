@@ -21,7 +21,7 @@ void SoccerTeam::insertGoalKeeper(GoalKeeper* gk) {
 }
 
 GoalKeeper* SoccerTeam::getGoalKepper() const{
-    this->goalkeeper;
+    return this->goalkeeper;
 }
 
 std::string SoccerTeam::getName() const {
