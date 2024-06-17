@@ -8,7 +8,7 @@
 int main(int argc, char* args[])
 {
 
-	/*SoccerPlayer* player1 = new SoccerPlayer();
+	SoccerPlayer* player1 = new SoccerPlayer();
 	SoccerPlayer* player2 = new SoccerPlayer();
 	SoccerPlayer* player3 = new SoccerPlayer();
 	GoalKeeper* goalKeeper1 = new GoalKeeper();
@@ -96,12 +96,12 @@ int main(int argc, char* args[])
 	team1->showSoccerPlayerInformations();
 	team2->showSoccerPlayerInformations();
 
-	SoccerMatch soccerMatch = SoccerMatch(team1, team2);
+	/*SoccerMatch soccerMatch = SoccerMatch(team1, team2);
 
 	//soccerMatch.showTeams();
 
 	soccerMatch.playMatch();
-	*/
+	/*
 	// Start up SDL and create window
 	if (!init())
 	{
@@ -171,9 +171,9 @@ int main(int argc, char* args[])
 			}
 		}
 	}
-
+	
 	// Free resources and close SDL
 	close();
-
+*/
 	return 0;
 }
