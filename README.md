@@ -12,7 +12,7 @@ Nosso jogo se baseia em um RPG de futebol, em que 2 times de 4 jogadores se conf
 
 ## Regras 
 
-- Turnos alterados
+- Turnos alternados
 - Todos atacam todos (de menos os goleiros)
 - Quem faz 3 jogos vence
 - Jogadores após os ataques ficam cansados, o que diminui seus ataques e defesas
