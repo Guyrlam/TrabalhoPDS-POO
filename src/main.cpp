@@ -382,20 +382,22 @@ int startgame(SoccerMatch soccerMatch, SoccerTeam *soccerteamA, SoccerTeam *socc
 						lines.push_back("Escolha os jogadores iniciais da equipe do cruzeiro!");
 						break;
 					case SELECT_TEAM_A:
-						buttonText = "ATACAR";
 						if (round_count != 0)
 						{
+							buttonText = "ATACAR";
 							soccerMatch.nextRound(&lines, &cru_score, &cam_score);
 							round_count++;
 						}
-						if (round_count == 0)
+						else
 						{
 							lines.push_back("Escolha os jogadores iniciais da equipe do galo!");
 						}
 						if (cru_score == 3 || cam_score == 3)
 						{
-							cru_score == 3 &&campion = "Cruzeiro";
-							cam_score == 3 &&campion = "Galo";
+							if (cru_score == 3)
+								champion = "Cruzeiro";
+							if (cam_score == 3)
+								champion = "Galo";
 							currentScreen = END;
 						}
 						else
@@ -411,8 +413,10 @@ int startgame(SoccerMatch soccerMatch, SoccerTeam *soccerteamA, SoccerTeam *socc
 						}
 						if (cru_score == 3 || cam_score == 3)
 						{
-							cru_score == 3 &&campion = "Cruzeiro";
-							cam_score == 3 &&campion = "Galo";
+							if (cru_score == 3)
+								champion = "Cruzeiro";
+							if (cam_score == 3)
+								champion = "Galo";
 							currentScreen = END;
 						}
 						else
