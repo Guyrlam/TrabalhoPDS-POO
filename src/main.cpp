@@ -172,10 +172,22 @@ int main(int argc, char* args[])
 	//team1->showSoccerPlayerInformations();
 	//team2->showSoccerPlayerInformations();
 
-	//team1->showSoccerPlayerInformations();
-	team1->swapPlayer(8, 10);
-	team1->showSoccerPlayerInformations();
+	// Um ou mais jogadores nao existem
+	//team1->swapPlayer(50, 8); 
+	//team1->swapPlayer(8, 50);
+	//team1->swapPlayer(23, 1);
+	//team1->swapPlayer(23, 23);
+	
+	// troca de mesmo jogador
+	//team2->swapPlayer(10, 10);
 
+	// troca de jogadores no banco
+
+	team2->swapPlayer(6, 19);
+	team2->swapPlayer(19, 6);
+
+	//team1->showSoccerPlayerInformations();
+	//team2->showSoccerPlayerInformations();
 	//SoccerMatch soccerMatch = SoccerMatch(team1, team2);
 
 	//soccerMatch.showTeams();

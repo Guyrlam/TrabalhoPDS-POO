@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "SoccerPlayerAttributes.hpp"
+#define PLAYERS_IN_FIELD 3
 
 class SoccerPlayer : public SoccerPlayerAttributes {
 

@@ -72,40 +72,57 @@ void SoccerTeam::updateResistanceTeam(){
 }
 
 
-void SoccerTeam::swapPlayer(int in, int out){
+void SoccerTeam::swapPlayer(int in, int out) {
+    try {
 
-    std::array<SoccerPlayer*, TOTAL_PLAYERS> playersArray = this->getSoccerPlayers();
-    
-    int playerInIndex = -1;
-    int playerOutIndex = -1;
+        std::array<SoccerPlayer*, TOTAL_PLAYERS> playersArray = this->getSoccerPlayers();
+        
+        int playerInIndex = -1;
+        int playerOutIndex = -1;
 
-    SoccerPlayer *hold = nullptr;
-
-    for(int i =0; i< TOTAL_PLAYERS; i++){
-
-        if(playersArray[i]->getShirtNumber() == in){
-            playerInIndex = i;
+        // Encontrar os índices dos jogadores com os números especificados
+        for (int i = 0; i < TOTAL_PLAYERS; i++) {
+            if (playersArray[i]->getShirtNumber() == in) {
+                playerInIndex = i;
+            }
+            if (playersArray[i]->getShirtNumber() == out) {
+                playerOutIndex = i;
+            }
+        }
+        
+        // Verifica se jogadores os nao foram encontrados
+        if (playerInIndex == -1 || playerOutIndex == -1) {
+            throw std::runtime_error("Jogador nao encontrado para troca.");
         }
 
-        if(playersArray[i]->getShirtNumber() == out){
-            playerOutIndex = i;
+        if (playerInIndex == playerOutIndex) {
+            throw std::runtime_error("Um jogador nao pode ser trocado por ele mesmo");
         }
+
+        if(playerInIndex >= PLAYERS_IN_FIELD && playerOutIndex >= PLAYERS_IN_FIELD)
+            throw std::runtime_error("O tecnico nao pode movimentar jogadores no banco por eles mesmos");
+
+        if(playerInIndex >= 3 && playerOutIndex < 3)
+            std::cout << "Sai " << playersArray[playerOutIndex]->getName() << "(" << out << ")"<< " - Entra " <<  playersArray[playerInIndex]->getName() << "(" << in << ")"<< std::endl;
+        else
+            std::cout << "O tecnico mexeu no time eh (<0-0>)" << std::endl;
+        
+        // Trocar os jogadores de posição no vetor
+        SoccerPlayer* hold = playersArray[playerInIndex];
+        playersArray[playerInIndex] = playersArray[playerOutIndex];
+        playersArray[playerOutIndex] = hold;
+
+        // Atualizar a resistência do jogador que vai para o banco
+        playersArray[playerOutIndex]->setResistance(1.0);
+
+        this->setSoccerPlayers(playersArray);
+
+
+    } catch (const std::exception& e) {
+        std::cerr << "Erro: " << e.what() << std::endl;
     }
-
-    if(playerInIndex >= 3 && playerOutIndex < 3)
-        std::cout << "Sai " << playersArray[playerOutIndex]->getName() << "(" << out << ")"<< " - Entra " <<  playersArray[playerInIndex]->getName() << "(" << in << ")"<< std::endl;
-    else
-        std::cout << "O tecnico mexeu no time eh (<0-0>)" << std::endl;
-
-    hold = playersArray[playerInIndex];
-    playersArray[playerInIndex] = playersArray[playerOutIndex]; 
-    playersArray[playerOutIndex] = hold;
-
-    // Atualizando a resistencia do jogador que vai para o banco
-    playersArray[playerOutIndex]->setResistance(1.0);
-
-    this->setSoccerPlayers(playersArray);
 }
+
 
 
 /* Criar um array para jogadores do banco
