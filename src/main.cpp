@@ -17,6 +17,8 @@ enum ScreenState
 {
 	SELECT_TEAM_A,
 	SELECT_TEAM_B,
+	SELECT_TEAM_A_INITIAL,
+	SELECT_TEAM_B_INITIAL,
 	ATTACK_TEAM_A,
 	ATTACK_TEAM_B,
 	START,
@@ -167,13 +169,13 @@ int startgame(SoccerMatch soccerMatch, SoccerTeam *soccerteamA, SoccerTeam *socc
 	int playerAttackA = -1, playerAttackB = -1, playerDeffenseA = -1, playerDeffenseB = -1;
 
 	// Inicializa os jogadores do time A
-	teamA[0].texture = loadTexture("game_graphics/TeamCruzeiro/Ronaldofenomeno.png", renderer);
-	teamA[1].texture = loadTexture("game_graphics/TeamCruzeiro/Tostão.png", renderer);
-	teamA[2].texture = loadTexture("game_graphics/TeamCruzeiro/EvertonRibeiro.png", renderer);
-	teamA[3].texture = loadTexture("game_graphics/TeamCruzeiro/Alex.png", renderer);
-	teamA[4].texture = loadTexture("game_graphics/TeamCruzeiro/Sorin.png", renderer);
-	teamA[5].texture = loadTexture("game_graphics/TeamCruzeiro/Marcelomoreno.png", renderer);
-	goleiroA.texture = loadTexture("game_graphics/TeamCruzeiro/Fabio.png", renderer);
+	teamA[0].texture = loadTexture("game_graphics/TeamCruzeiro/miniatures/Ronaldofenomeno3.png", renderer);
+	teamA[1].texture = loadTexture("game_graphics/TeamCruzeiro/miniatures/Tostão3.png", renderer);
+	teamA[2].texture = loadTexture("game_graphics/TeamCruzeiro/miniatures/EvertonRibeiro3.png", renderer);
+	teamA[3].texture = loadTexture("game_graphics/TeamCruzeiro/miniatures/Alex3.jpg", renderer);
+	teamA[4].texture = loadTexture("game_graphics/TeamCruzeiro/miniatures/Sorin3.png", renderer);
+	teamA[5].texture = loadTexture("game_graphics/TeamCruzeiro/miniatures/Marcelomoreno3.png", renderer);
+	goleiroA.texture = loadTexture("game_graphics/TeamCruzeiro/miniatures/Fabio3.png", renderer);
 	teamA[0].rect = {120, 100, card_width, card_height}; // x, y, width, height
 	teamA[1].rect = {120, 280, card_width, card_height};
 	teamA[2].rect = {200, 190, card_width, card_height};
@@ -183,13 +185,13 @@ int startgame(SoccerMatch soccerMatch, SoccerTeam *soccerteamA, SoccerTeam *socc
 	goleiroA.rect = {10, 220, card_width, card_height};
 
 	// Inicializa os jogadores do time B
-	teamB[0].texture = loadTexture("game_graphics/TeamGalo/Hulk.png", renderer);
-	teamB[1].texture = loadTexture("game_graphics/TeamGalo/Tardelli.png", renderer);
-	teamB[2].texture = loadTexture("game_graphics/TeamGalo/RonaldinhoGaucho.png", renderer);
-	teamB[3].texture = loadTexture("game_graphics/TeamGalo/Rever.png", renderer);
-	teamB[4].texture = loadTexture("game_graphics/TeamGalo/Luan.png", renderer);
-	teamB[5].texture = loadTexture("game_graphics/TeamGalo/Donizete.png", renderer);
-	goleiroB.texture = loadTexture("game_graphics/TeamGalo/Vitor.png", renderer);
+	teamB[0].texture = loadTexture("game_graphics/TeamGalo/miniatures/Hulk3.png", renderer);
+	teamB[1].texture = loadTexture("game_graphics/TeamGalo/miniatures/Tardelli3.png", renderer);
+	teamB[2].texture = loadTexture("game_graphics/TeamGalo/miniatures/RonaldinhoGaucho3.png", renderer);
+	teamB[3].texture = loadTexture("game_graphics/TeamGalo/miniatures/Rever3.png", renderer);
+	teamB[4].texture = loadTexture("game_graphics/TeamGalo/miniatures/Luan3.png", renderer);
+	teamB[5].texture = loadTexture("game_graphics/TeamGalo/miniatures/Donizete3.png", renderer);
+	goleiroB.texture = loadTexture("game_graphics/TeamGalo/miniatures/Vitor3.png", renderer);
 	teamB[0].rect = {WINDOW_WIDTH - (card_width + 120), 100, card_width, card_height}; // x, y, width, height
 	teamB[1].rect = {WINDOW_WIDTH - (card_width + 120), 280, card_width, card_height};
 	teamB[2].rect = {WINDOW_WIDTH - (card_width + 200), 190, card_width, card_height};
@@ -420,7 +422,7 @@ int startgame(SoccerMatch soccerMatch, SoccerTeam *soccerteamA, SoccerTeam *socc
 						break;
 					}
 				}
-				else if (currentScreen == SELECT_TEAM_A)
+				else if (currentScreen == SELECT_TEAM_A || currentScreen == SELECT_TEAM_A_INITIAL)
 				{
 					for (int i = 0; i < teamA.size(); i++)
 					{
@@ -447,7 +449,7 @@ int startgame(SoccerMatch soccerMatch, SoccerTeam *soccerteamA, SoccerTeam *socc
 						selectedStarterA = -1;
 					}
 				}
-				else if (currentScreen == SELECT_TEAM_B)
+				else if (currentScreen == SELECT_TEAM_B || currentScreen == SELECT_TEAM_B_INITIAL)
 				{
 					for (int i = 0; i < teamB.size(); i++)
 					{
