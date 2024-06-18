@@ -72,6 +72,26 @@ void SoccerTeam::updateResistanceTeam(){
 }
 
 
+int SoccerTeam::getShirtPlayerPosition(SoccerTeam *team, int position){
+
+    try{
+
+        if(position > TOTAL_PLAYERS|| position < 0){
+            throw std::runtime_error("Jogador nao pode ser encontrado.");
+        }
+
+        std::array<SoccerPlayer*, TOTAL_PLAYERS> playersArray = team->getSoccerPlayers();
+        return playersArray[position]->getShirtNumber();
+
+    }catch (const std::exception& e) {
+        std::cerr << "Erro: " << e.what() << std::endl;
+
+    }
+
+
+}
+
+
 void SoccerTeam::swapPlayer(int in, int out) {
     try {
 
