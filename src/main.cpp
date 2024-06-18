@@ -5,9 +5,8 @@
 #include "../include/GoalKeeper.hpp"
 #include "../include/sdl2.hpp"
 
-int main(int argc, char* args[])
-{
 
+void buildGame(){
 	SoccerPlayer* player1 = new SoccerPlayer();
 	SoccerPlayer* player2 = new SoccerPlayer();
 	SoccerPlayer* player3 = new SoccerPlayer();
@@ -169,29 +168,35 @@ int main(int argc, char* args[])
 	team2->insertSoccerPlayer(player12);
 	team2->insertGoalKeeper(goalKeeper2);
 
-	//team1->showSoccerPlayerInformations();
-	//team2->showSoccerPlayerInformations();
+	SoccerMatch soccerMatch = SoccerMatch(team1, team2);
+	soccerMatch.playMatch();
+}
+
+
+int main(int argc, char* args[])
+{
+
+	buildGame();
+
+
+	#pragma region Testes a serem executados
 
 	// Um ou mais jogadores nao existem
-	//team1->swapPlayer(50, 8); 
-	//team1->swapPlayer(8, 50);
-	//team1->swapPlayer(23, 1);
-	//team1->swapPlayer(23, 23);
+	// team1->swapPlayer(50, 8); 
+	// team1->swapPlayer(8, 50);
+	// team1->swapPlayer(23, 1);
+	// team1->swapPlayer(23, 23);
 	
-	// troca de mesmo jogador
-	//team2->swapPlayer(10, 10);
+	// // troca de mesmo jogador
+	// team2->swapPlayer(10, 10);
 
-	// troca de jogadores no banco
+	// // troca de jogadores no banco
 
-	team2->swapPlayer(6, 19);
-	team2->swapPlayer(19, 6);
+	// team2->swapPlayer(6, 19);
+	// team2->swapPlayer(19, 6);
 
-	//team1->showSoccerPlayerInformations();
-	//team2->showSoccerPlayerInformations();
-	//SoccerMatch soccerMatch = SoccerMatch(team1, team2);
+	#pragma endregion
 
-	//soccerMatch.showTeams();
-	//soccerMatch.playMatch();
 	/*
 	// Start up SDL and create window
 	if (!init())
