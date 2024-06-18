@@ -92,7 +92,7 @@ int SoccerTeam::getShirtPlayerPosition(SoccerTeam *team, int position){
 }
 
 
-void SoccerTeam::swapPlayer(int in, int out) {
+bool SoccerTeam::swapPlayer(int in, int out) {
     try {
 
         std::array<SoccerPlayer*, TOTAL_PLAYERS> playersArray = this->getSoccerPlayers();
@@ -136,11 +136,13 @@ void SoccerTeam::swapPlayer(int in, int out) {
         playersArray[playerOutIndex]->setResistance(1.0);
 
         this->setSoccerPlayers(playersArray);
-
+        return true;
 
     } catch (const std::exception& e) {
         std::cerr << "Erro: " << e.what() << std::endl;
+        return false;
     }
+
 }
 
 

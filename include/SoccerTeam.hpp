@@ -34,7 +34,7 @@ public:
 	void updateResistanceTeam();
 	void updateResistanceTeam(int PLAYERS_PER_TEAM, float decreaseResistance);
 	int getShirtPlayerPosition(SoccerTeam *team, int position);
-	void swapPlayer(int in, int out);
+	bool swapPlayer(int in, int out);
 
 	~SoccerTeam();
 };
