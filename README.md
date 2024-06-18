@@ -8,6 +8,7 @@
 ## O que é o projeto?
 
 Nosso jogo se baseia em um RPG de futebol, em que 2 times de 4 jogadores se confrontam para chegar a 3 gols marcados.
+***Como rodar o projeto está no fim do arquivo**
 
 ## Regras 
 
@@ -23,7 +24,7 @@ Nosso jogo se baseia em um RPG de futebol, em que 2 times de 4 jogadores se conf
 - Após o gol a resistência dos jogadores e restaurada
 - Se um jogador vai para o banco, sua resistência é restaurada
 
-#Libs utilizadas
+# Libs utilizadas
 - SDL2
 - SDL2 Image
 - SDL2 fonts
