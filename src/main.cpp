@@ -17,10 +17,6 @@ enum ScreenState
 {
 	SELECT_TEAM_A,
 	SELECT_TEAM_B,
-	SELECT_TEAM_A_INITIAL,
-	SELECT_TEAM_B_INITIAL,
-	ATTACK_TEAM_A,
-	ATTACK_TEAM_B,
 	START,
 	END
 };
@@ -62,11 +58,10 @@ SDL_Texture *loadTexture(std::string path, SDL_Renderer *renderer)
 	return newTexture;
 }
 
+int startgame(SoccerMatch soccerMatch, SoccerTeam *soccerteamA, SoccerTeam *soccerteamB)
+{
 
-
-int startgame(SoccerMatch soccerMatch, SoccerTeam *soccerteamA, SoccerTeam *soccerteamB){
-
-// SDL config
+	// SDL config
 
 	// Define a tela START como a inicial
 	ScreenState currentScreen = START;
@@ -153,7 +148,7 @@ int startgame(SoccerMatch soccerMatch, SoccerTeam *soccerteamA, SoccerTeam *socc
 	// Variáveis para o placar
 	int cru_score = 0;
 	int cam_score = 0;
-	int round_count = 1;
+	int round_count = 0;
 	int score_total_width;	   // 10 pixels de espaço entre elese;
 	int score_top_margin = 30; // Espaço do topo da janela
 	std::string champion;
@@ -164,9 +159,6 @@ int startgame(SoccerMatch soccerMatch, SoccerTeam *soccerteamA, SoccerTeam *socc
 	int card_width = 60;
 	int card_height = 80;
 	int selectedStarterA = -1, selectedReserveA = -1, selectedStarterB = -1, selectedReserveB = -1;
-	std::vector<int> attackArrayA = {-1, -1, -1};
-	std::vector<int> attackArrayB = {-1, -1, -1};
-	int playerAttackA = -1, playerAttackB = -1, playerDeffenseA = -1, playerDeffenseB = -1;
 
 	// Inicializa os jogadores do time A
 	teamA[0].texture = loadTexture("game_graphics/TeamCruzeiro/miniatures/Ronaldofenomeno3.png", renderer);
@@ -213,17 +205,6 @@ int startgame(SoccerMatch soccerMatch, SoccerTeam *soccerteamA, SoccerTeam *socc
 	while (running)
 	{
 		// ELEMENTOS DINAMICOS
-
-		// Cria as linhas do terminal
-		currentTime = SDL_GetTicks();
-		if (currentTime - lastTime >= 500 && count < 50)
-		{
-			lastTime = currentTime;
-			std::stringstream lineText;
-			lineText << "exemplo " << count + 1;
-			lines.push_back(lineText.str());
-			count++;
-		}
 
 		// Cria o botão central
 		SDL_Surface *buttonStart = TTF_RenderText_Solid(fontStartButtom, buttonText.c_str(), whiteColor);
@@ -397,32 +378,54 @@ int startgame(SoccerMatch soccerMatch, SoccerTeam *soccerteamA, SoccerTeam *socc
 					case START:
 						buttonText = "ESCALAR";
 						currentScreen = SELECT_TEAM_A;
+						lines.push_back("Rola a bola!");
+						lines.push_back("Escolha os jogadores iniciais da equipe do cruzeiro!");
 						break;
 					case SELECT_TEAM_A:
-						buttonText = "ESCALAR";
-						currentScreen = SELECT_TEAM_B;
+						buttonText = "ATACAR";
+						if (round_count != 0)
+						{
+							soccerMatch.nextRound(&lines, &cru_score, &cam_score);
+							round_count++;
+						}
+						if (round_count == 0)
+						{
+							lines.push_back("Escolha os jogadores iniciais da equipe do galo!");
+						}
+						if (cru_score == 3 || cam_score == 3)
+						{
+							cru_score == 3 &&campion = "Cruzeiro";
+							cam_score == 3 &&campion = "Galo";
+							currentScreen = END;
+						}
+						else
+						{
+							currentScreen = SELECT_TEAM_B;
+						}
 						break;
 					case SELECT_TEAM_B:
 						buttonText = "ATACAR";
-						currentScreen = ATTACK_TEAM_A;
-						attackArrayA = {-1, -1, -1};
-						attackArrayB = {-1, -1, -1};
-						break;
-					case ATTACK_TEAM_A:
-						buttonText = "ATACAR";
-						currentScreen = ATTACK_TEAM_B;
-						attackArrayA = {-1, -1, -1};
-						attackArrayB = {-1, -1, -1};
-						break;
-					case ATTACK_TEAM_B:
-						champion = "Cruzeiro";
-						currentScreen = END;
+						if (round_count != 0)
+						{
+							soccerMatch.nextRound(&lines, &cru_score, &cam_score);
+						}
+						if (cru_score == 3 || cam_score == 3)
+						{
+							cru_score == 3 &&campion = "Cruzeiro";
+							cam_score == 3 &&campion = "Galo";
+							currentScreen = END;
+						}
+						else
+						{
+							currentScreen = SELECT_TEAM_A;
+						}
+						round_count++;
 						break;
 					default:
 						break;
 					}
 				}
-				else if (currentScreen == SELECT_TEAM_A || currentScreen == SELECT_TEAM_A_INITIAL)
+				else if (currentScreen == SELECT_TEAM_A)
 				{
 					for (int i = 0; i < teamA.size(); i++)
 					{
@@ -444,12 +447,12 @@ int startgame(SoccerMatch soccerMatch, SoccerTeam *soccerteamA, SoccerTeam *socc
 					if (selectedReserveA != -1 && selectedStarterA != -1)
 					{
 						std::swap(teamA[selectedReserveA].texture, teamA[selectedStarterA].texture);
-						soccerteamA->swapPlayer(soccerteamA->getShirtPlayerPosition(soccerteamA, selectedReserveA),soccerteamA->getShirtPlayerPosition(soccerteamA, selectedStarterA));
+						soccerteamA->swapPlayer(soccerteamA->getShirtPlayerPosition(soccerteamA, selectedReserveA), soccerteamA->getShirtPlayerPosition(soccerteamA, selectedStarterA), &lines);
 						selectedReserveA = -1;
 						selectedStarterA = -1;
 					}
 				}
-				else if (currentScreen == SELECT_TEAM_B || currentScreen == SELECT_TEAM_B_INITIAL)
+				else if (currentScreen == SELECT_TEAM_B)
 				{
 					for (int i = 0; i < teamB.size(); i++)
 					{
@@ -471,27 +474,10 @@ int startgame(SoccerMatch soccerMatch, SoccerTeam *soccerteamA, SoccerTeam *socc
 					if (selectedReserveB != -1 && selectedStarterB != -1)
 					{
 						std::swap(teamB[selectedReserveB].texture, teamB[selectedStarterB].texture);
-						soccerteamB->swapPlayer(soccerteamB->getShirtPlayerPosition(soccerteamB, selectedReserveB),soccerteamB->getShirtPlayerPosition(soccerteamB, selectedStarterB));
+						soccerteamB->swapPlayer(soccerteamB->getShirtPlayerPosition(soccerteamB, selectedReserveB), soccerteamB->getShirtPlayerPosition(soccerteamB, selectedStarterB), &lines);
 						selectedReserveB = -1;
 						selectedStarterB = -1;
 					}
-				}
-			}
-			else if (e.type == SDL_KEYDOWN)
-			{
-				switch (e.key.keysym.sym)
-				{
-				case SDLK_1:
-					cru_score++;
-					break;
-				case SDLK_2:
-					round_count++;
-					break;
-				case SDLK_3:
-					cam_score++;
-					break;
-				default:
-					break;
 				}
 			}
 		}
@@ -518,9 +504,7 @@ int startgame(SoccerMatch soccerMatch, SoccerTeam *soccerteamA, SoccerTeam *socc
 	IMG_Quit();
 	TTF_Quit();
 	SDL_Quit();
-
 }
-
 
 void buildGame()
 {
@@ -685,14 +669,10 @@ void buildGame()
 	team2->insertSoccerPlayer(player12);
 	team2->insertGoalKeeper(goalKeeper2);
 
-	SoccerMatch soccerMatch = SoccerMatch(team1, team2);
+	SoccerMatch soccerMatch = SoccerMatch(team2, team1);
 
 	startgame(soccerMatch, team2, team1);
-
 }
-
-
-
 
 int main(int argc, char *args[])
 {
@@ -717,6 +697,5 @@ int main(int argc, char *args[])
 
 #pragma endregion
 
-	
 	return 0;
 }

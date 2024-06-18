@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <array>
+#include <vector>
 #include "SoccerPlayer.hpp"
 #include "GoalKeeper.hpp"
 #define TOTAL_PLAYERS 6
@@ -34,7 +35,7 @@ public:
 	void updateResistanceTeam();
 	void updateResistanceTeam(int PLAYERS_PER_TEAM, float decreaseResistance);
 	int getShirtPlayerPosition(SoccerTeam *team, int position);
-	void swapPlayer(int in, int out);
+	void swapPlayer(int in, int out, std::vector<std::string>* lines);
 
 	~SoccerTeam();
 };
