@@ -16,7 +16,7 @@ apt install -y g++
 apt-get install -y build-essential
 snap install cmake --classic
 apt-get install -y gdb
-apt install libsdl2-dev libsdl2-image-dev pkg-config
+apt install libsdl2-dev libsdl2-image-dev pkg-config libsdl2-ttf-dev
 mkdir build           # Cria a pasta 'build'
 cd build              # Entra na pasta 'build'
 cmake ..              # Executa o CMake na pasta atual
