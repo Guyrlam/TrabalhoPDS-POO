@@ -17,7 +17,7 @@ private:
 	void nextRound();
 	int playersConfrontation(SoccerPlayer* attacker, SoccerPlayer* defender);
     void updateScore(SoccerTeam* scoringTeam);
-    bool attemptGoal(int attackValue, GoalKeeper* keeper);
+    bool attemptGoal(int attackValue, GoalKeeper* keeper, const std::string& teamAttack, const std::string& teamDefense);
 
 public:
 	SoccerMatch(SoccerTeam* leftSideTeam, SoccerTeam* rightSideTeam);

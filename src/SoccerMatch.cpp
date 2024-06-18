@@ -13,11 +13,16 @@ std::mt19937 gen(rd()); // Mersenne Twister 19937 gerador de numeros aleatorios
 // Definindo a distribuicao dos numeros aleatorios (de 1 a 100)
 std::uniform_int_distribution<> dis(1, 100);
 
+std::uniform_int_distribution<> seedDice(1, 6);
+
+
 // Construtor SoccerMatch: Quando instanciado inicia o placar 0 x 0 e define que sera o time a inciar os turno, lembrando o time A sempre comeca
 SoccerMatch::SoccerMatch(SoccerTeam *leftSideTeam, SoccerTeam *rightSideTeam) 
 	: teamAScore(0), teamBScore(0), round(1){
-
-	if (dis(gen) % 2 == 0) {
+	
+	this->teamA = leftSideTeam;
+	this->teamB = rightSideTeam;
+	/*if (dis(gen) % 2 == 0) {
 
 		this->teamA = leftSideTeam;
 		this->teamB = rightSideTeam;
@@ -25,7 +30,7 @@ SoccerMatch::SoccerMatch(SoccerTeam *leftSideTeam, SoccerTeam *rightSideTeam)
 	else {
 		this->teamA = rightSideTeam; 
 		this->teamB = leftSideTeam;
-	}
+	}*/
 }
 
 void SoccerMatch::showTeams() {
@@ -79,7 +84,6 @@ void SoccerMatch::positionPlayers(SoccerTeam* team) {
 }
 */
 
-
 // To do: Refatorar funcao
 void SoccerMatch::nextRound(){
 	
@@ -89,8 +93,14 @@ void SoccerMatch::nextRound(){
 	int attackVictory = 0;
 	int restAttack = 0;
 
+	std::string teamAName = this->teamA->getName();
+	std::string teamBName = this->teamB->getName();
+
+	std::cout << "Round " << round << std::endl;
+
 	if(round % 2 != 0){
 
+		std::cout << "O time " << teamAName << " esta atacando" << std::endl;
 		// Realizando todos os confrontos
 		for(int i = 0; i < PLAYERS_PER_TEAM; i++){
 			// Se a funcao confronto retornar um valor positivo o ataque individual funcionou
@@ -104,12 +114,20 @@ void SoccerMatch::nextRound(){
 
 		// O empate eh da defesa, só podera realizar o chute ao gol se tiver duas ou mais vitorias no ataque
 		if(attackVictory >= 2){
-			if(this->attemptGoal(restAttack, this->teamB->getGoalKepper()))
-				std::cout << this->teamB->getGoalKepper()->getDefense() << std::endl;
+			if(this->attemptGoal(restAttack, this->teamB->getGoalKepper(), teamAName, teamBName)){
 				this->updateScore(this->teamA);
-		}
+				this->teamA->updateResistanceTeam();
+				this->teamB->updateResistanceTeam();
+			}
+		}else if(round > 1){
+			std::cout << "Time " << teamAName << " perdeu a bola" << std::endl;
+			this->teamA->updateResistanceTeam(PLAYERS_PER_TEAM, 0.2);
+		}else
+			std::cout << "Time " << teamAName << " comecou perdendo a bola" << std::endl;
+		
 	}else{
 
+		std::cout << "O time " << teamBName << " esta atacando" << std::endl;
 		// Realizando todos os confrontos
 		for(int i = 0; i < PLAYERS_PER_TEAM; i++){
 			// Se a funcao confronto retornar um valor positivo o ataque individual funcionou
@@ -122,9 +140,15 @@ void SoccerMatch::nextRound(){
 		}
 
 		// O empate eh da defesa, só podera realizar o chute ao gol se tiver duas ou mais vitorias no ataque
-		if(attackVictory >= 2 && this->attemptGoal(restAttack, this->teamA->getGoalKepper())){
+		if(attackVictory >= 2 && this->attemptGoal(restAttack, this->teamA->getGoalKepper(), teamBName, teamAName)){
 			this->updateScore(this->teamB);
-		}
+			this->teamA->updateResistanceTeam();
+			this->teamB->updateResistanceTeam();
+		}else if(round > 1){
+			std::cout << "Time " << teamBName << " perdeu a bola" << std::endl;
+			this->teamB->updateResistanceTeam(PLAYERS_PER_TEAM, 0.2);
+		}else
+			std::cout << "Time " << teamBName << " comecou perdendo a bola" << std::endl;
 
 	}
 
@@ -146,11 +170,27 @@ int SoccerMatch::playersConfrontation(SoccerPlayer* attacker, SoccerPlayer* defe
 
 // Metodo para chance de gol
 
-bool SoccerMatch::attemptGoal(int attackValue, GoalKeeper* keeper) {
-    int defenseGoalKeeper = keeper->getDefense() + keeper->getFlexibility();
-	//std::cout << defenseGoalKeeper << std::endl;
+bool SoccerMatch::attemptGoal(int attackValue, GoalKeeper* keeper, const std::string& teamAttack, const std::string& teamDefense) {
 
-    return attackValue > defenseGoalKeeper;
+	std::cout << "- O time: " << teamAttack << " esta atacando o gol " << " de " << keeper->getName() << " do time " << teamDefense << std::endl; 
+
+    int defenseGoalKeeper = keeper->getDefense() + keeper->getFlexibility();
+
+	int dice1;
+	int dice2;
+
+	if(attackValue > defenseGoalKeeper){
+		dice1 = seedDice(gen);
+		dice2 = seedDice(gen);
+		return ((dice1 > 4) || (dice2 > 4)) ? true: false;
+	}else{
+		dice1 = seedDice(gen); 
+
+		return dice1 > 4 ? true: false;
+	}
+
+	//std::cout << defenseGoalKeeper << std::endl;
+    //return attackValue > defenseGoalKeeper;
 }
 
 //Metodo para atualizar o placar
@@ -161,7 +201,7 @@ void SoccerMatch::updateScore(SoccerTeam* scoringTeam) {
     } else {
         teamBScore++;
     }
-    std::cout << "Placar atualizado: Team A " << teamAScore << " - " << teamBScore << " Team B" << std::endl;
+    std::cout << "Placar atualizado:\n" << this->teamA->getName() << "-" << teamAScore << "X" << teamBScore << " - " << this->teamB->getName() << std::endl;
 }
 
 

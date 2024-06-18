@@ -30,6 +30,8 @@ public:
 	void showSoccerPlayerInformations();
 
 	std::array<SoccerPlayer*, TOTAL_PLAYERS> getSoccerPlayers() const;
+	void updateResistanceTeam();
+	void updateResistanceTeam(int PLAYERS_PER_TEAM, float decreaseResistance);
 
 	~SoccerTeam();
 };

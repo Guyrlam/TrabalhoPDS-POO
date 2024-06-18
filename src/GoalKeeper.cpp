@@ -33,11 +33,11 @@ void GoalKeeper::setName(const std::string& newName) {
 	this->name = newName;
 }
 
-int GoalKeeper::getResistance() const {
+float GoalKeeper::getResistance() const {
 	return this->resistance;
 }
 
-void GoalKeeper::setResistance(int value) {
+void GoalKeeper::setResistance(float value) {
 	this->resistance = value;
 }
 

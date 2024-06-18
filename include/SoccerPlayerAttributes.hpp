@@ -11,7 +11,7 @@ class SoccerPlayerAttributes
 protected:
     int agility;
     int strength;
-    int resistance;
+    float resistance;
     std::string name;
 
 public:
@@ -25,8 +25,8 @@ public:
     virtual int getStrength() const = 0;
     virtual void setStrength(int value) = 0;
 
-    virtual int getResistance() const = 0;
-    virtual void setResistance(int value) = 0;
+    virtual float getResistance() const = 0;
+    virtual void setResistance(float value) = 0;
 
     virtual void informations() const = 0;
 };

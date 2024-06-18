@@ -50,6 +50,27 @@ std::array<SoccerPlayer*, TOTAL_PLAYERS> SoccerTeam::getSoccerPlayers() const {
     return this->soccerPlayers;
 }
 
+
+void SoccerTeam::updateResistanceTeam(int PLAYERS_PER_TEAM, float decreaseResistance){
+
+	for(int i =0; i< PLAYERS_PER_TEAM; i++){
+		SoccerPlayer *player = this->getSoccerPlayers()[i];
+		float resistance = player->getResistance();
+		player->setResistance(resistance - decreaseResistance);
+	}
+}
+
+void SoccerTeam::updateResistanceTeam(){
+
+	for(int i =0; i< TOTAL_PLAYERS; i++){
+		SoccerPlayer *player = this->getSoccerPlayers()[i];
+		player->setResistance(1.0);
+	}
+}
+
+
+
+
 /* Criar um array para jogadores do banco
 
 std::array<SoccerPlayer*, PLAYERS_RESERVE_TEAM> SoccerTeam::getSoccerPlayers() const {

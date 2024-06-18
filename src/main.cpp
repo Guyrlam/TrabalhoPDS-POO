@@ -28,7 +28,7 @@ int main(int argc, char* args[])
 	SoccerTeam* team2 = new SoccerTeam();
 	//Time Atletico
 	player1->setName("Hulk");
-	player1->setResistance(1);
+	player1->setResistance(1.0);
 	player1->setAgility(75);
 	player1->setStrength(90);
 	player1->setDribbling(60);
@@ -36,7 +36,7 @@ int main(int argc, char* args[])
 	player1->setPassing(60);
 
 	player2->setName("Tardelli");
-	player2->setResistance(1);
+	player2->setResistance(1.0);
 	player2->setAgility(45);
 	player2->setStrength(40);
 	player2->setDribbling(40);
@@ -44,7 +44,7 @@ int main(int argc, char* args[])
 	player2->setPassing(40);
 
 	player3->setName("Ronaldinho Gaucho");
-	player3->setResistance(1);
+	player3->setResistance(1.0);
 	player3->setAgility(50);
 	player3->setStrength(50);
 	player3->setDribbling(100);
@@ -52,7 +52,7 @@ int main(int argc, char* args[])
 	player3->setPassing(100);
 
 	player4->setName("Rever");
-	player4->setResistance(1);
+	player4->setResistance(1.0);
 	player4->setAgility(70);
 	player4->setStrength(90);
 	player4->setDribbling(30);
@@ -60,7 +60,7 @@ int main(int argc, char* args[])
 	player4->setPassing(45);
 
 	player5->setName("Luan");
-	player5->setResistance(1);
+	player5->setResistance(1.0);
 	player5->setAgility(50);
 	player5->setStrength(40);
 	player5->setDribbling(55);
@@ -68,7 +68,7 @@ int main(int argc, char* args[])
 	player5->setPassing(80);
 
 	player6->setName("Donizete");
-	player6->setResistance(1);
+	player6->setResistance(1.0);
 	player6->setAgility(40);
 	player6->setStrength(50);
 	player6->setDribbling(65);
@@ -76,17 +76,15 @@ int main(int argc, char* args[])
 	player6->setPassing(45);
 
 	goalKeeper1->setName("Vitor");
-	goalKeeper1->setResistance(1);
+	goalKeeper1->setResistance(1.0);
 	goalKeeper1->setAgility(30);
 	goalKeeper1->setStrength(40);
 	goalKeeper1->setFlexibility(90);
 	goalKeeper1->setDefense(95);
 
-	
-	
 	//Time Cruzeiro
 	player7->setName("Ronaldo fenomeo");
-	player7->setResistance(1);
+	player7->setResistance(1.0);
 	player7->setAgility(95);
 	player7->setStrength(70);
 	player7->setDribbling(90);
@@ -94,7 +92,7 @@ int main(int argc, char* args[])
 	player7->setPassing(50);
 
 	player8->setName("Tostao");
-	player8->setResistance(1);
+	player8->setResistance(1.0);
 	player8->setAgility(60);
 	player8->setStrength(35);
 	player8->setDribbling(45);
@@ -102,7 +100,7 @@ int main(int argc, char* args[])
 	player8->setPassing(55);
 
 	player9->setName("Everton Ribeiro");
-	player9->setResistance(1);
+	player9->setResistance(1.0);
 	player9->setAgility(60);
 	player9->setStrength(50);
 	player9->setDribbling(55);
@@ -110,7 +108,7 @@ int main(int argc, char* args[])
 	player9->setPassing(50);
 
 	player10->setName("Alex");
-	player10->setResistance(1);
+	player10->setResistance(1.0);
 	player10->setAgility(40);
 	player10->setStrength(70);
 	player10->setDribbling(65);
@@ -118,7 +116,7 @@ int main(int argc, char* args[])
 	player10->setPassing(45);
 
 	player11->setName("Sorin");
-	player11->setResistance(1);
+	player11->setResistance(1.0);
 	player11->setAgility(45);
 	player11->setStrength(55);
 	player11->setDribbling(60);
@@ -126,7 +124,7 @@ int main(int argc, char* args[])
 	player11->setPassing(75);
 
 	player12->setName("Marcelo Moreno");
-	player12->setResistance(1);
+	player12->setResistance(1.0);
 	player12->setAgility(45);
 	player12->setStrength(50);
 	player12->setDribbling(55);
@@ -134,7 +132,7 @@ int main(int argc, char* args[])
 	player12->setPassing(50);
 
 	goalKeeper2->setName("Fabio");
-	goalKeeper2->setResistance(1);
+	goalKeeper2->setResistance(1.0);
 	goalKeeper2->setAgility(35);
 	goalKeeper2->setStrength(45);
 	goalKeeper2->setFlexibility(85);
@@ -159,8 +157,8 @@ int main(int argc, char* args[])
 	team2->insertSoccerPlayer(player12);
 	team2->insertGoalKeeper(goalKeeper2);
 
-	team1->showSoccerPlayerInformations();
-	team2->showSoccerPlayerInformations();
+	//team1->showSoccerPlayerInformations();
+	//team2->showSoccerPlayerInformations();
 
 	SoccerMatch soccerMatch = SoccerMatch(team1, team2);
 

@@ -31,8 +31,8 @@ class GoalKeeper : public SoccerPlayerAttributes {
         int getStrength() const override;
         void setStrength(int value) override;
 
-        int getResistance() const override;
-        void setResistance(int value) override;
+        float getResistance() const override;
+        void setResistance(float value) override;
 
         void informations() const override;      
 

@@ -9,32 +9,26 @@ SoccerPlayer::~SoccerPlayer() {}
 
 int SoccerPlayer::getDribbling() const {
 	return this->dribbling;
-	return this->priority;
 }
 
 void SoccerPlayer::setDribbling(int value){
 	this->dribbling = value;
-	this->priority = 2;
 }
 
 int SoccerPlayer::getShooting() const {
 	return this->shooting;
-	return this->priority;
 }
 
 void SoccerPlayer::setShooting(int value){
 	this->shooting = value;
-	this->priority = 1;
 }
 
 int SoccerPlayer::getPassing() const {
 	return this->passing;
-	return this->priority;
 }
 
 void SoccerPlayer::setPassing(int value){
 	this->passing = value;
-	this->priority = 2;
 }
 
 // Todo: Podera ser adicionado aleatoriedade para o jogador. Ex.: Torcidada xingou o jogador
@@ -82,34 +76,28 @@ void SoccerPlayer::setName(const std::string& newName) {
 	this->name = newName;
 }
 
-int SoccerPlayer::getResistance() const {
+float SoccerPlayer::getResistance() const {
 	return resistance;
-	return this->priority;
 }
 
-void SoccerPlayer::setResistance(int value) {
+void SoccerPlayer::setResistance(float value) {
 	resistance = value;
-	this->priority = 3;
 }
 
 int SoccerPlayer::getAgility() const {
 	return agility;
-	return this->priority;
 }
 
 void SoccerPlayer::setAgility(int value) {
 	agility = value;
-	this->priority = 2;
 }
 
 int SoccerPlayer::getStrength() const {
 	return strength;
-	return this->priority;
 }
 
 void SoccerPlayer::setStrength(int value) {
 	strength = value;
-	this->priority = 3;
 }
 
 void SoccerPlayer::informations() const {
