@@ -11,7 +11,7 @@ class SoccerPlayer : public SoccerPlayerAttributes {
 		int dribbling;
 		int shooting;
 		int passing;
-		int priority;
+		int shirtNumber;
 
 	public:
  		SoccerPlayer();
@@ -26,9 +26,13 @@ class SoccerPlayer : public SoccerPlayerAttributes {
 		int getPassing() const;
     	void setPassing(int value);
 
+
 		int getShooting() const;
     	void setShooting(int value);
 
+		int getShirtNumber() const;
+		void setShirtNumber(int value);
+		
 		int getAttack() const;
 		int getDefense() const;
 

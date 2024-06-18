@@ -23,6 +23,15 @@ void SoccerPlayer::setShooting(int value){
 	this->shooting = value;
 }
 
+
+int SoccerPlayer::getShirtNumber() const {
+	return this->shirtNumber;
+}
+
+void SoccerPlayer::setShirtNumber(int value){
+	this->shirtNumber = value;
+}
+
 int SoccerPlayer::getPassing() const {
 	return this->passing;
 }
@@ -38,6 +47,18 @@ void SoccerPlayer::setPassing(int value){
 // Força 
 // Dible 2
 // Passe 2
+
+/*
+Força:70
+Agilidade:95
+Resistencia:35
+Chute:95
+Drible:50
+Drible:90
+
+Ataque = (Agilidade + 3*Chute + Força + 2*Drible + 2*Drible)
+Defesa = (5*Agilidade + 4*Força)
+*/
 
 int SoccerPlayer::getAttack() const
 {

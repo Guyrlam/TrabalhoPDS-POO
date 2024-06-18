@@ -34,6 +34,7 @@ int main(int argc, char* args[])
 	player1->setDribbling(60);
 	player1->setShooting(95);
 	player1->setPassing(60);
+	player1->setShirtNumber(7);
 
 	player2->setName("Tardelli");
 	player2->setResistance(1.0);
@@ -42,14 +43,16 @@ int main(int argc, char* args[])
 	player2->setDribbling(40);
 	player2->setShooting(60);
 	player2->setPassing(40);
+	player2->setShirtNumber(9);
 
 	player3->setName("Ronaldinho Gaucho");
 	player3->setResistance(1.0);
 	player3->setAgility(50);
 	player3->setStrength(50);
-	player3->setDribbling(100);
+	player3->setDribbling(90);
 	player3->setShooting(95);
-	player3->setPassing(100);
+	player3->setPassing(90);
+	player3->setShirtNumber(10);
 
 	player4->setName("Rever");
 	player4->setResistance(1.0);
@@ -58,6 +61,7 @@ int main(int argc, char* args[])
 	player4->setDribbling(30);
 	player4->setShooting(30);
 	player4->setPassing(45);
+	player4->setShirtNumber(4);
 
 	player5->setName("Luan");
 	player5->setResistance(1.0);
@@ -66,6 +70,7 @@ int main(int argc, char* args[])
 	player5->setDribbling(55);
 	player5->setShooting(60);
 	player5->setPassing(80);
+	player5->setShirtNumber(17);
 
 	player6->setName("Donizete");
 	player6->setResistance(1.0);
@@ -74,6 +79,7 @@ int main(int argc, char* args[])
 	player6->setDribbling(65);
 	player6->setShooting(65);
 	player6->setPassing(45);
+	player6->setShirtNumber(8);
 
 	goalKeeper1->setName("Vitor");
 	goalKeeper1->setResistance(1.0);
@@ -90,6 +96,7 @@ int main(int argc, char* args[])
 	player7->setDribbling(90);
 	player7->setShooting(95);
 	player7->setPassing(50);
+	player7->setShirtNumber(9);
 
 	player8->setName("Tostao");
 	player8->setResistance(1.0);
@@ -98,6 +105,7 @@ int main(int argc, char* args[])
 	player8->setDribbling(45);
 	player8->setShooting(55);
 	player8->setPassing(55);
+	player8->setShirtNumber(7);
 
 	player9->setName("Everton Ribeiro");
 	player9->setResistance(1.0);
@@ -106,6 +114,7 @@ int main(int argc, char* args[])
 	player9->setDribbling(55);
 	player9->setShooting(70);
 	player9->setPassing(50);
+	player9->setShirtNumber(17);
 
 	player10->setName("Alex");
 	player10->setResistance(1.0);
@@ -114,6 +123,7 @@ int main(int argc, char* args[])
 	player10->setDribbling(65);
 	player10->setShooting(35);
 	player10->setPassing(45);
+	player10->setShirtNumber(10);
 
 	player11->setName("Sorin");
 	player11->setResistance(1.0);
@@ -122,6 +132,7 @@ int main(int argc, char* args[])
 	player11->setDribbling(60);
 	player11->setShooting(60);
 	player11->setPassing(75);
+	player11->setShirtNumber(6);
 
 	player12->setName("Marcelo Moreno");
 	player12->setResistance(1.0);
@@ -130,6 +141,7 @@ int main(int argc, char* args[])
 	player12->setDribbling(55);
 	player12->setShooting(70);
 	player12->setPassing(50);
+	player12->setShirtNumber(19);
 
 	goalKeeper2->setName("Fabio");
 	goalKeeper2->setResistance(1.0);
@@ -160,10 +172,14 @@ int main(int argc, char* args[])
 	//team1->showSoccerPlayerInformations();
 	//team2->showSoccerPlayerInformations();
 
-	SoccerMatch soccerMatch = SoccerMatch(team1, team2);
+	//team1->showSoccerPlayerInformations();
+	team1->swapPlayer(8, 10);
+	team1->showSoccerPlayerInformations();
+
+	//SoccerMatch soccerMatch = SoccerMatch(team1, team2);
 
 	//soccerMatch.showTeams();
-	soccerMatch.playMatch();
+	//soccerMatch.playMatch();
 	/*
 	// Start up SDL and create window
 	if (!init())

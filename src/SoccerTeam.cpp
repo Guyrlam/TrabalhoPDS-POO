@@ -50,6 +50,9 @@ std::array<SoccerPlayer*, TOTAL_PLAYERS> SoccerTeam::getSoccerPlayers() const {
     return this->soccerPlayers;
 }
 
+void SoccerTeam::setSoccerPlayers(std::array<SoccerPlayer*, TOTAL_PLAYERS> _soccerPlayers){
+    this->soccerPlayers = _soccerPlayers;
+}
 
 void SoccerTeam::updateResistanceTeam(int PLAYERS_PER_TEAM, float decreaseResistance){
 
@@ -69,6 +72,40 @@ void SoccerTeam::updateResistanceTeam(){
 }
 
 
+void SoccerTeam::swapPlayer(int in, int out){
+
+    std::array<SoccerPlayer*, TOTAL_PLAYERS> playersArray = this->getSoccerPlayers();
+    
+    int playerInIndex = -1;
+    int playerOutIndex = -1;
+
+    SoccerPlayer *hold = nullptr;
+
+    for(int i =0; i< TOTAL_PLAYERS; i++){
+
+        if(playersArray[i]->getShirtNumber() == in){
+            playerInIndex = i;
+        }
+
+        if(playersArray[i]->getShirtNumber() == out){
+            playerOutIndex = i;
+        }
+    }
+
+    if(playerInIndex >= 3 && playerOutIndex < 3)
+        std::cout << "Sai " << playersArray[playerOutIndex]->getName() << "(" << out << ")"<< " - Entra " <<  playersArray[playerInIndex]->getName() << "(" << in << ")"<< std::endl;
+    else
+        std::cout << "O tecnico mexeu no time eh (<0-0>)" << std::endl;
+
+    hold = playersArray[playerInIndex];
+    playersArray[playerInIndex] = playersArray[playerOutIndex]; 
+    playersArray[playerOutIndex] = hold;
+
+    // Atualizando a resistencia do jogador que vai para o banco
+    playersArray[playerOutIndex]->setResistance(1.0);
+
+    this->setSoccerPlayers(playersArray);
+}
 
 
 /* Criar um array para jogadores do banco
