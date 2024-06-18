@@ -12,6 +12,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
 find_package(PkgConfig REQUIRED)
 pkg_search_module(SDL2 REQUIRED sdl2)
 pkg_search_module(SDL2IMAGE REQUIRED SDL2_image>=2.0.0)
+pkg_search_module(SDL2TTF REQUIRED SDL2_ttf>=2.0.0)
 
 # Localizar todos os arquivos fonte na pasta src
 file(GLOB SOURCES "${PROJECT_SOURCE_DIR}/src/*.cpp")
@@ -20,8 +21,8 @@ file(GLOB SOURCES "${PROJECT_SOURCE_DIR}/src/*.cpp")
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 # Incluir diretórios de cabeçalho das bibliotecas encontradas
-include_directories(${SDL2_INCLUDE_DIRS} ${SDL2IMAGE_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR}/include)
+include_directories(${SDL2_INCLUDE_DIRS} ${SDL2IMAGE_INCLUDE_DIRS} ${SDL2TTF_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR}/include)
 
 # Linkar as bibliotecas necessárias
-target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2IMAGE_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2IMAGE_LIBRARIES} ${SDL2TTF_LIBRARIES})
 

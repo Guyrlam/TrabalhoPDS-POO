@@ -1,114 +1,166 @@
 #include "../include/SoccerTeam.hpp"
 #include "../include/SoccerPlayer.hpp"
 #include "../include/GoalKeeper.hpp"
+#include <vector>
+#include <sstream>
 
-SoccerTeam::SoccerTeam() : numPlayers(0) {
-
+SoccerTeam::SoccerTeam() : numPlayers(0)
+{
 }
 
-void SoccerTeam::insertSoccerPlayer(SoccerPlayer* player) {
-    
-    if (this->numPlayers < TOTAL_PLAYERS) {
+void SoccerTeam::insertSoccerPlayer(SoccerPlayer *player)
+{
+
+    if (this->numPlayers < TOTAL_PLAYERS)
+    {
         this->soccerPlayers[this->numPlayers++] = player;
     }
-    else {
+    else
+    {
         // Lidar com o caso de tentativa de adicionar mais objetos do que o permitido
     }
 }
 
-void SoccerTeam::insertGoalKeeper(GoalKeeper* gk) {
+void SoccerTeam::insertGoalKeeper(GoalKeeper *gk)
+{
     this->goalkeeper = gk;
 }
 
-GoalKeeper* SoccerTeam::getGoalKepper() const{
+GoalKeeper *SoccerTeam::getGoalKepper() const
+{
     return this->goalkeeper;
 }
 
-std::string SoccerTeam::getName() const {
+std::string SoccerTeam::getName() const
+{
     return this->name;
 }
 
-void SoccerTeam::setName(const std::string& newName) {
+void SoccerTeam::setName(const std::string &newName)
+{
     this->name = newName;
 }
 
-void SoccerTeam::showSoccerPlayerInformations() {
+void SoccerTeam::showSoccerPlayerInformations()
+{
     std::cout << "Informacoes do time:" << std::endl;
 
     // Exibir informacoes dos jogadores de linha
-    for (size_t i = 0; i < this->numPlayers; ++i) {
+    for (size_t i = 0; i < this->numPlayers; ++i)
+    {
         this->soccerPlayers[i]->informations();
     }
 
     // Exibir informacoes do goleiro, se houver
-    if (this->goalkeeper != nullptr) {
+    if (this->goalkeeper != nullptr)
+    {
         this->goalkeeper->informations();
     }
 }
 
-std::array<SoccerPlayer*, TOTAL_PLAYERS> SoccerTeam::getSoccerPlayers() const {
+std::array<SoccerPlayer *, TOTAL_PLAYERS> SoccerTeam::getSoccerPlayers() const
+{
     return this->soccerPlayers;
 }
 
-void SoccerTeam::setSoccerPlayers(std::array<SoccerPlayer*, TOTAL_PLAYERS> _soccerPlayers){
+void SoccerTeam::setSoccerPlayers(std::array<SoccerPlayer *, TOTAL_PLAYERS> _soccerPlayers)
+{
     this->soccerPlayers = _soccerPlayers;
 }
 
-void SoccerTeam::updateResistanceTeam(int PLAYERS_PER_TEAM, float decreaseResistance){
+void SoccerTeam::updateResistanceTeam(int PLAYERS_PER_TEAM, float decreaseResistance)
+{
 
-	for(int i =0; i< PLAYERS_PER_TEAM; i++){
-		SoccerPlayer *player = this->getSoccerPlayers()[i];
-		float resistance = player->getResistance();
-		player->setResistance(resistance - decreaseResistance);
-	}
+    for (int i = 0; i < PLAYERS_PER_TEAM; i++)
+    {
+        SoccerPlayer *player = this->getSoccerPlayers()[i];
+        float resistance = player->getResistance();
+        player->setResistance(resistance - decreaseResistance);
+    }
 }
 
-void SoccerTeam::updateResistanceTeam(){
+void SoccerTeam::updateResistanceTeam()
+{
 
-	for(int i =0; i< TOTAL_PLAYERS; i++){
-		SoccerPlayer *player = this->getSoccerPlayers()[i];
-		player->setResistance(1.0);
-	}
+    for (int i = 0; i < TOTAL_PLAYERS; i++)
+    {
+        SoccerPlayer *player = this->getSoccerPlayers()[i];
+        player->setResistance(1.0);
+    }
 }
 
+int SoccerTeam::getShirtPlayerPosition(SoccerTeam *team, int position)
+{
 
-void SoccerTeam::swapPlayer(int in, int out) {
-    try {
+    try
+    {
 
-        std::array<SoccerPlayer*, TOTAL_PLAYERS> playersArray = this->getSoccerPlayers();
-        
+        if (position > TOTAL_PLAYERS || position < 0)
+        {
+            throw std::runtime_error("Jogador nao pode ser encontrado.");
+        }
+
+        std::array<SoccerPlayer *, TOTAL_PLAYERS> playersArray = team->getSoccerPlayers();
+        return playersArray[position]->getShirtNumber();
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << "Erro: " << e.what() << std::endl;
+    }
+}
+
+void SoccerTeam::swapPlayer(int in, int out, std::vector<std::string>* lines)
+{
+    try
+    {
+
+        std::array<SoccerPlayer *, TOTAL_PLAYERS> playersArray = this->getSoccerPlayers();
+
         int playerInIndex = -1;
         int playerOutIndex = -1;
 
+        std::stringstream lineText;
+
         // Encontrar os índices dos jogadores com os números especificados
-        for (int i = 0; i < TOTAL_PLAYERS; i++) {
-            if (playersArray[i]->getShirtNumber() == in) {
+        for (int i = 0; i < TOTAL_PLAYERS; i++)
+        {
+            if (playersArray[i]->getShirtNumber() == in)
+            {
                 playerInIndex = i;
             }
-            if (playersArray[i]->getShirtNumber() == out) {
+            if (playersArray[i]->getShirtNumber() == out)
+            {
                 playerOutIndex = i;
             }
         }
-        
+
         // Verifica se jogadores os nao foram encontrados
-        if (playerInIndex == -1 || playerOutIndex == -1) {
+        if (playerInIndex == -1 || playerOutIndex == -1)
+        {
             throw std::runtime_error("Jogador nao encontrado para troca.");
         }
 
-        if (playerInIndex == playerOutIndex) {
+        if (playerInIndex == playerOutIndex)
+        {
             throw std::runtime_error("Um jogador nao pode ser trocado por ele mesmo");
         }
 
-        if(playerInIndex >= PLAYERS_IN_FIELD && playerOutIndex >= PLAYERS_IN_FIELD)
+        if (playerInIndex >= PLAYERS_IN_FIELD && playerOutIndex >= PLAYERS_IN_FIELD)
             throw std::runtime_error("O tecnico nao pode movimentar jogadores no banco por eles mesmos");
 
-        if(playerInIndex >= 3 && playerOutIndex < 3)
-            std::cout << "Sai " << playersArray[playerOutIndex]->getName() << "(" << out << ")"<< " - Entra " <<  playersArray[playerInIndex]->getName() << "(" << in << ")"<< std::endl;
+        if (playerInIndex >= 3 && playerOutIndex < 3)
+        {
+            lineText << "Sai " << playersArray[playerOutIndex]->getName() << "(" << out << ")" << " - Entra " << playersArray[playerInIndex]->getName() << "(" << in << ")";
+            lines->push_back(lineText.str());
+        }
         else
-            std::cout << "O tecnico mexeu no time eh (<0-0>)" << std::endl;
-        
+        {
+            lineText << "O tecnico mexeu no time eh (<0-0>)";
+            lines->push_back(lineText.str());
+        }
+
         // Trocar os jogadores de posição no vetor
-        SoccerPlayer* hold = playersArray[playerInIndex];
+        SoccerPlayer *hold = playersArray[playerInIndex];
         playersArray[playerInIndex] = playersArray[playerOutIndex];
         playersArray[playerOutIndex] = hold;
 
@@ -116,14 +168,12 @@ void SoccerTeam::swapPlayer(int in, int out) {
         playersArray[playerOutIndex]->setResistance(1.0);
 
         this->setSoccerPlayers(playersArray);
-
-
-    } catch (const std::exception& e) {
+    }
+    catch (const std::exception &e)
+    {
         std::cerr << "Erro: " << e.what() << std::endl;
     }
 }
-
-
 
 /* Criar um array para jogadores do banco
 
@@ -135,7 +185,7 @@ std::array<SoccerPlayer*, PLAYERS_RESERVE_TEAM> SoccerTeam::getSoccerPlayers() c
 /* Funcao para estanciar jogadores do banco
 
 void SoccerTeam::insertReservePlayer(SoccerPlayer* player) {
-    
+
     if (this->numPlayers < PLAYERS_RESERVE_TEAM) {
         this->ReservePlayers[this->numPlayers++] = player;
     }
@@ -147,6 +197,6 @@ void SoccerTeam::insertReservePlayer(SoccerPlayer* player) {
 
 
 */
-SoccerTeam::~SoccerTeam() {
-
+SoccerTeam::~SoccerTeam()
+{
 }
