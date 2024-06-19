@@ -123,18 +123,15 @@ void SoccerMatch::nextRound(std::vector<std::string> *lines, int *cru_score, int
 		}
 
 		// O empate eh da defesa, só podera realizar o chute ao gol se tiver duas ou mais vitorias no ataque
-		if (attackVictory >= 2)
+		if (attackVictory >= 2 && this->attemptGoal(restAttack, this->teamB->getGoalKepper(), teamAName, teamBName))
 		{
-			if (this->attemptGoal(restAttack, this->teamB->getGoalKepper(), teamAName, teamBName))
-			{
-				this->updateScore(this->teamA);
-				*cru_score = *cru_score + 1;
-				lineText << "Placar atualizado:\n"
-						 << this->teamA->getName() << "-" << teamAScore << "X" << teamBScore << " - " << this->teamB->getName();
-				lines->push_back(lineText.str());
-				this->teamA->updateResistanceTeam();
-				this->teamB->updateResistanceTeam();
-			}
+			this->updateScore(this->teamA);
+			*cru_score = *cru_score + 1;
+			lineText << "Placar atualizado:\n"
+					 << this->teamA->getName() << "-" << teamAScore << "X" << teamBScore << " - " << this->teamB->getName();
+			lines->push_back(lineText.str());
+			this->teamA->updateResistanceTeam();
+			this->teamB->updateResistanceTeam();
 		}
 		else if (round > 1)
 		{
